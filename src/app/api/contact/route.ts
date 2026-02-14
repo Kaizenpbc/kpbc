@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import sgMail from "@sendgrid/mail";
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
 
 interface ContactSubmission {
   name: string;
@@ -42,27 +45,33 @@ export async function POST(request: NextRequest) {
       submittedAt: new Date().toISOString(),
     };
 
-    // Log submission (visible in Vercel function logs)
     console.log("Contact form submission:", JSON.stringify(submission));
 
-    // TODO: In production, send an email or store in a database:
-    //
-    // Email with Resend:
-    // const resend = new Resend(process.env.RESEND_API_KEY);
-    // await resend.emails.send({
-    //   from: 'KPBC Contact <noreply@kpbc.com>',
-    //   to: ['contact@kpbc.com'],
-    //   subject: `New Contact: ${submission.name}`,
-    //   html: `<p><strong>Name:</strong> ${submission.name}</p>...`,
-    // });
-    //
-    // Database with Vercel Postgres, Supabase, etc.
+    await sgMail.send({
+      to: "michaela@kpbc.ca",
+      from: process.env.SENDGRID_FROM_EMAIL || "noreply@kpbc.ca",
+      replyTo: submission.email,
+      subject: `New Contact Form: ${submission.name}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${submission.name}</p>
+        <p><strong>Email:</strong> ${submission.email}</p>
+        <p><strong>Company:</strong> ${submission.company || "N/A"}</p>
+        <p><strong>Area of Interest:</strong> ${submission.area || "N/A"}</p>
+        <p><strong>Service:</strong> ${submission.service || "N/A"}</p>
+        <p><strong>Message:</strong></p>
+        <p>${submission.message}</p>
+        <hr />
+        <p><em>Submitted at ${submission.submittedAt}</em></p>
+      `,
+    });
 
     return NextResponse.json(
       { message: "Thank you! Your message has been received." },
       { status: 200 }
     );
-  } catch {
+  } catch (error) {
+    console.error("Contact form error:", error);
     return NextResponse.json(
       { error: "Internal server error. Please try again later." },
       { status: 500 }
