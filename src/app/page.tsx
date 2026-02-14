@@ -4,6 +4,16 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 
+const services = [
+  { abbr: "SD", name: "Software Development", description: "Custom applications, web & mobile development, and API integrations tailored to your business needs." },
+  { abbr: "AD", name: "Application Development", description: "End-to-end application development from concept to deployment using modern frameworks." },
+  { abbr: "WD", name: "Website Development", description: "Responsive, fast, and SEO-optimized websites that connect you with your audience." },
+  { abbr: "CS", name: "Cybersecurity", description: "Protect your digital assets with comprehensive security audits, threat monitoring, and compliance." },
+  { abbr: "DT", name: "Digital Transformation", description: "Modernize your operations with strategic technology adoption and process automation." },
+  { abbr: "BPR", name: "Business Process Reengineering", description: "Redesign business processes for dramatic improvements in productivity and efficiency." },
+  { abbr: "ITC", name: "IT Consulting & Support", description: "Strategic IT guidance, managed services, and dedicated helpdesk support." },
+];
+
 const products = [
   { abbr: "DMS", name: "Document Management System", description: "Organize, store, and retrieve documents with ease." },
   { abbr: "LMS", name: "Learning Management System", description: "Deliver and track training programs seamlessly." },
@@ -95,6 +105,46 @@ export default function Home() {
               </AnimatedSection>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              Our <span className="gradient-text">Services</span>
+            </h2>
+            <p className="text-muted max-w-2xl mx-auto">
+              Comprehensive IT solutions designed to accelerate your growth and secure your digital future.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {services.map((service, i) => (
+              <AnimatedSection key={service.abbr} delay={i * 0.1}>
+                <div className="group relative p-8 rounded-2xl bg-surface border border-surface-light hover:border-primary/30 transition-all duration-300 glow-hover text-center h-full">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mx-auto mb-6">
+                    <span className="text-2xl font-bold gradient-text">{service.abbr}</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">{service.name}</h3>
+                  <p className="text-muted text-sm">{service.description}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          <AnimatedSection className="text-center mt-12">
+            <Link
+              href="/services"
+              className="inline-flex items-center text-primary hover:text-primary-light font-medium transition-colors"
+            >
+              View All Services
+              <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </AnimatedSection>
         </div>
       </section>
 
