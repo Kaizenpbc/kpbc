@@ -73,6 +73,12 @@ export default function Home() {
               >
                 Our Services
               </Link>
+              <Link
+                href="/products"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-surface-light text-foreground font-semibold text-lg hover:bg-surface-light transition-colors"
+              >
+                Our Products
+              </Link>
             </div>
           </motion.div>
         </div>
