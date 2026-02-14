@@ -1,16 +1,157 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/products", label: "Products" },
-  { href: "/contact", label: "Contact" },
+const serviceItems = [
+  { href: "/services#software-development", label: "Software Development" },
+  { href: "/services#application-development", label: "Application Development" },
+  { href: "/services#website-development", label: "Website Development" },
+  { href: "/services#cybersecurity", label: "Cybersecurity" },
+  { href: "/services#digital-transformation", label: "Digital Transformation" },
+  { href: "/services#business-process-reengineering", label: "Business Process Reengineering" },
+  { href: "/services#it-consulting", label: "IT Consulting & Support" },
 ];
+
+const productItems = [
+  { href: "/products#dms", label: "Document Management System" },
+  { href: "/products#lms", label: "Learning Management System" },
+  { href: "/products#crm", label: "Customer Relationship Management" },
+  { href: "/products#sis", label: "Student Information System" },
+];
+
+
+function DesktopDropdown({
+  label,
+  items,
+}: {
+  label: string;
+  items: { href: string; label: string }[];
+}) {
+  const [open, setOpen] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const handleEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setOpen(true);
+  };
+
+  const handleLeave = () => {
+    timeoutRef.current = setTimeout(() => setOpen(false), 150);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative"
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+    >
+      <button
+        className="px-4 py-2 rounded-lg text-sm font-medium text-muted hover:text-white hover:bg-surface-light transition-all duration-200 flex items-center gap-1"
+        onClick={() => setOpen((v) => !v)}
+      >
+        {label}
+        <svg
+          className={`w-3.5 h-3.5 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.15 }}
+            className="absolute top-full left-0 mt-1 w-72 rounded-xl glass border border-surface-light shadow-2xl overflow-hidden"
+          >
+            <div className="py-2">
+              {items.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="block px-4 py-2.5 text-sm text-muted hover:text-white hover:bg-surface-light transition-colors"
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+function MobileDropdown({
+  label,
+  items,
+  onNavigate,
+}: {
+  label: string;
+  items: { href: string; label: string }[];
+  onNavigate: () => void;
+}) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div>
+      <button
+        className="w-full flex items-center justify-between px-4 py-2 rounded-lg text-muted hover:text-white hover:bg-surface-light transition-colors"
+        onClick={() => setOpen((v) => !v)}
+      >
+        <span>{label}</span>
+        <svg
+          className={`w-4 h-4 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="overflow-hidden"
+          >
+            <div className="pl-4 py-1 space-y-1">
+              {items.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="block px-4 py-2 rounded-lg text-sm text-muted hover:text-white hover:bg-surface-light transition-colors"
+                  onClick={onNavigate}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,15 +170,26 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="px-4 py-2 rounded-lg text-sm font-medium text-muted hover:text-white hover:bg-surface-light transition-all duration-200"
-              >
-                {link.label}
-              </Link>
-            ))}
+            <Link
+              href="/"
+              className="px-4 py-2 rounded-lg text-sm font-medium text-muted hover:text-white hover:bg-surface-light transition-all duration-200"
+            >
+              Home
+            </Link>
+            <Link
+              href="/about"
+              className="px-4 py-2 rounded-lg text-sm font-medium text-muted hover:text-white hover:bg-surface-light transition-all duration-200"
+            >
+              About
+            </Link>
+            <DesktopDropdown label="Services" items={serviceItems} />
+            <DesktopDropdown label="Products" items={productItems} />
+            <Link
+              href="/contact"
+              className="px-4 py-2 rounded-lg text-sm font-medium text-muted hover:text-white hover:bg-surface-light transition-all duration-200"
+            >
+              Contact
+            </Link>
             <Link
               href="/contact"
               className="ml-4 px-5 py-2 rounded-lg bg-gradient-to-r from-primary to-accent text-white text-sm font-semibold hover:opacity-90 transition-opacity"
@@ -73,16 +225,29 @@ export default function Navbar() {
             className="md:hidden glass border-t border-surface-light"
           >
             <div className="px-4 py-4 space-y-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="block px-4 py-2 rounded-lg text-muted hover:text-white hover:bg-surface-light transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              <Link
+                href="/"
+                className="block px-4 py-2 rounded-lg text-muted hover:text-white hover:bg-surface-light transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Home
+              </Link>
+              <Link
+                href="/about"
+                className="block px-4 py-2 rounded-lg text-muted hover:text-white hover:bg-surface-light transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                About
+              </Link>
+              <MobileDropdown label="Services" items={serviceItems} onNavigate={() => setIsOpen(false)} />
+              <MobileDropdown label="Products" items={productItems} onNavigate={() => setIsOpen(false)} />
+              <Link
+                href="/contact"
+                className="block px-4 py-2 rounded-lg text-muted hover:text-white hover:bg-surface-light transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                Contact
+              </Link>
               <Link
                 href="/contact"
                 className="block px-4 py-3 rounded-lg bg-gradient-to-r from-primary to-accent text-white text-center font-semibold"
