@@ -7,80 +7,66 @@ import AnimatedSection from "@/components/AnimatedSection";
 const services = [
   {
     id: "software-development",
-    icon: (
-      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-      </svg>
-    ),
+    abbr: "SD",
     title: "Software Development",
+    tagline: "Build. Scale. Deliver.",
     description: "We build custom software solutions that address your unique business challenges. From enterprise applications to elegant consumer-facing products, our development team delivers robust, scalable software.",
     features: ["Custom Application Development", "Web & Mobile Applications", "API Development & Integration", "Legacy System Modernization"],
+    gradient: "from-blue-500 to-cyan-500",
   },
   {
     id: "application-development",
-    icon: (
-      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
+    abbr: "AD",
     title: "Application Development",
+    tagline: "Concept. Code. Deploy.",
     description: "End-to-end application development services from concept to deployment. We craft high-performance applications using modern frameworks and best practices to ensure reliability and maintainability.",
     features: ["Full-Stack Development", "Cloud-Native Applications", "Progressive Web Apps", "Cross-Platform Solutions"],
+    gradient: "from-violet-500 to-purple-500",
   },
   {
     id: "website-development",
-    icon: (
-      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-      </svg>
-    ),
+    abbr: "WD",
     title: "Website Development",
+    tagline: "Design. Develop. Launch.",
     description: "Modern, responsive websites that make a lasting impression. We design and develop websites that are fast, accessible, and optimized for search engines, helping you connect with your audience effectively.",
     features: ["Responsive Web Design", "E-Commerce Platforms", "Content Management Systems", "SEO Optimization"],
+    gradient: "from-emerald-500 to-teal-500",
   },
   {
     id: "cybersecurity",
-    icon: (
-      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-      </svg>
-    ),
+    abbr: "CS",
     title: "Cybersecurity",
+    tagline: "Protect. Detect. Respond.",
     description: "Comprehensive cybersecurity services to protect your organization from evolving threats. We implement defense-in-depth strategies tailored to your risk profile and compliance requirements.",
     features: ["Security Assessments & Audits", "Threat Detection & Response", "Compliance & Governance", "Security Awareness Training"],
+    gradient: "from-red-500 to-rose-500",
   },
   {
     id: "digital-transformation",
-    icon: (
-      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    ),
+    abbr: "DT",
     title: "Business Digital Transformation",
+    tagline: "Innovate. Modernize. Grow.",
     description: "Navigate the digital landscape with confidence. We help organizations reimagine their operations, adopt new technologies, and create digital-first strategies that deliver measurable business outcomes.",
     features: ["Digital Strategy & Roadmapping", "Process Automation", "Cloud Migration", "Data Analytics & Insights"],
+    gradient: "from-amber-500 to-orange-500",
   },
   {
     id: "business-process-reengineering",
-    icon: (
-      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-      </svg>
-    ),
+    abbr: "BPR",
     title: "Business Process Reengineering",
+    tagline: "Analyze. Redesign. Optimize.",
     description: "Fundamentally rethink and redesign your business processes to achieve dramatic improvements in productivity, quality, and efficiency. We identify bottlenecks and implement streamlined workflows.",
     features: ["Process Analysis & Mapping", "Workflow Optimization", "Change Management", "Performance Measurement"],
+    gradient: "from-pink-500 to-fuchsia-500",
   },
   {
     id: "it-consulting",
-    icon: (
-      <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
-      </svg>
-    ),
+    abbr: "ITC",
     title: "IT Consulting & Support",
+    tagline: "Advise. Support. Empower.",
     description: "Expert IT guidance and reliable support services to keep your technology running smoothly. From strategic planning to day-to-day helpdesk operations, we are your trusted technology partner.",
     features: ["IT Strategy & Planning", "Managed IT Services", "24/7 Helpdesk Support", "Infrastructure Management"],
+    gradient: "from-indigo-500 to-blue-500",
   },
 ];
 
@@ -110,35 +96,61 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services */}
       <section className="py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-8">
+          <div className="space-y-16">
             {services.map((service, i) => (
               <AnimatedSection key={service.id} delay={i * 0.05}>
                 <div
                   id={service.id}
-                  className="group p-8 lg:p-10 rounded-2xl bg-background border border-surface-light hover:border-primary/30 transition-all duration-300 glow-hover scroll-mt-24"
+                  className="rounded-2xl bg-background border border-surface-light overflow-hidden scroll-mt-24"
                 >
-                  <div className="flex flex-col lg:flex-row gap-8">
-                    <div className="flex-shrink-0">
-                      <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                        {service.icon}
+                  {/* Header Bar */}
+                  <div className={`h-1.5 bg-gradient-to-r ${service.gradient}`} />
+
+                  <div className="p-8 lg:p-12">
+                    <div className="flex flex-col lg:flex-row gap-10">
+                      {/* Left - Info */}
+                      <div className="flex-1">
+                        <div className="flex items-center gap-4 mb-4">
+                          <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} bg-opacity-20 flex items-center justify-center`}>
+                            <span className="text-xl font-bold text-white">{service.abbr}</span>
+                          </div>
+                          <div>
+                            <h2 className="text-2xl font-bold text-white">{service.title}</h2>
+                            <p className="text-muted text-sm">{service.tagline}</p>
+                          </div>
+                        </div>
+                        <p className="text-muted leading-relaxed mt-6">{service.description}</p>
+                      </div>
+
+                      {/* Right - Features */}
+                      <div className="lg:w-80 flex-shrink-0">
+                        <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Key Features</h3>
+                        <div className="space-y-3">
+                          {service.features.map((feature) => (
+                            <div key={feature} className="flex items-center text-sm text-muted">
+                              <svg className="w-4 h-4 text-accent mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                              </svg>
+                              {feature}
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                    <div className="flex-1">
-                      <h2 className="text-2xl font-bold text-white mb-4">{service.title}</h2>
-                      <p className="text-muted leading-relaxed mb-6">{service.description}</p>
-                      <div className="grid sm:grid-cols-2 gap-3">
-                        {service.features.map((feature) => (
-                          <div key={feature} className="flex items-center text-sm text-muted">
-                            <svg className="w-4 h-4 text-accent mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                            </svg>
-                            {feature}
-                          </div>
-                        ))}
-                      </div>
+
+                    <div className="mt-8 pt-6 border-t border-surface-light">
+                      <Link
+                        href="/contact"
+                        className="inline-flex items-center text-primary hover:text-primary-light font-medium transition-colors text-sm"
+                      >
+                        Get in Touch
+                        <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </Link>
                     </div>
                   </div>
                 </div>
