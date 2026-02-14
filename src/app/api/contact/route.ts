@@ -1,11 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { promises as fs } from "fs";
-import path from "path";
 
 interface ContactSubmission {
   name: string;
   email: string;
   company: string;
+  area: string;
   service: string;
   message: string;
   submittedAt: string;
@@ -37,34 +36,18 @@ export async function POST(request: NextRequest) {
       name: String(name),
       email: String(email),
       company: String(body.company || ""),
+      area: String(body.area || ""),
       service: String(body.service || ""),
       message: String(message),
       submittedAt: new Date().toISOString(),
     };
 
-    // Store submission to a JSON file (replace with a real database in production)
-    const dataDir = path.join(process.cwd(), "data");
-    const filePath = path.join(dataDir, "submissions.json");
+    // Log submission (visible in Vercel function logs)
+    console.log("Contact form submission:", JSON.stringify(submission));
 
-    await fs.mkdir(dataDir, { recursive: true });
-
-    let submissions: ContactSubmission[] = [];
-    try {
-      const existing = await fs.readFile(filePath, "utf-8");
-      submissions = JSON.parse(existing);
-    } catch {
-      // File doesn't exist yet, start with empty array
-    }
-
-    submissions.push(submission);
-    await fs.writeFile(filePath, JSON.stringify(submissions, null, 2));
-
-    // In production, you would also send an email here using a service like:
-    // - Resend (resend.com)
-    // - SendGrid
-    // - Nodemailer with SMTP
+    // TODO: In production, send an email or store in a database:
     //
-    // Example with Resend:
+    // Email with Resend:
     // const resend = new Resend(process.env.RESEND_API_KEY);
     // await resend.emails.send({
     //   from: 'KPBC Contact <noreply@kpbc.com>',
@@ -72,6 +55,8 @@ export async function POST(request: NextRequest) {
     //   subject: `New Contact: ${submission.name}`,
     //   html: `<p><strong>Name:</strong> ${submission.name}</p>...`,
     // });
+    //
+    // Database with Vercel Postgres, Supabase, etc.
 
     return NextResponse.json(
       { message: "Thank you! Your message has been received." },
