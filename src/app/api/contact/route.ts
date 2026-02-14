@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import sgMail from "@sendgrid/mail";
+import { Resend } from "resend";
 
 interface ContactSubmission {
   name: string;
@@ -45,19 +45,19 @@ export async function POST(request: NextRequest) {
 
     console.log("Contact form submission:", JSON.stringify(submission));
 
-    if (!process.env.SENDGRID_API_KEY) {
-      console.error("SENDGRID_API_KEY is not set");
+    if (!process.env.RESEND_API_KEY) {
+      console.error("RESEND_API_KEY is not set");
       return NextResponse.json(
         { error: "Email service is not configured." },
         { status: 500 }
       );
     }
 
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
-    await sgMail.send({
+    const { error } = await resend.emails.send({
+      from: "KPBC Contact Form <onboarding@resend.dev>",
       to: "michaela@kpbc.ca",
-      from: process.env.SENDGRID_FROM_EMAIL || "noreply@kpbc.ca",
       replyTo: submission.email,
       subject: `New Contact Form: ${submission.name}`,
       html: `
@@ -74,20 +74,20 @@ export async function POST(request: NextRequest) {
       `,
     });
 
+    if (error) {
+      console.error("Resend error:", JSON.stringify(error));
+      return NextResponse.json(
+        { error: "Failed to send email. Please try again later." },
+        { status: 500 }
+      );
+    }
+
     return NextResponse.json(
       { message: "Thank you! Your message has been received." },
       { status: 200 }
     );
   } catch (error: unknown) {
     console.error("Contact form error:", error);
-
-    // Log detailed SendGrid error info
-    if (error && typeof error === "object" && "response" in error) {
-      const sgError = error as { response?: { body?: unknown; statusCode?: number } };
-      console.error("SendGrid response body:", JSON.stringify(sgError.response?.body));
-      console.error("SendGrid status code:", sgError.response?.statusCode);
-    }
-
     return NextResponse.json(
       { error: "Internal server error. Please try again later." },
       { status: 500 }
