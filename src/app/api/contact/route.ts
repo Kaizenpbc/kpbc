@@ -78,8 +78,16 @@ export async function POST(request: NextRequest) {
       { message: "Thank you! Your message has been received." },
       { status: 200 }
     );
-  } catch (error) {
+  } catch (error: unknown) {
     console.error("Contact form error:", error);
+
+    // Log detailed SendGrid error info
+    if (error && typeof error === "object" && "response" in error) {
+      const sgError = error as { response?: { body?: unknown; statusCode?: number } };
+      console.error("SendGrid response body:", JSON.stringify(sgError.response?.body));
+      console.error("SendGrid status code:", sgError.response?.statusCode);
+    }
+
     return NextResponse.json(
       { error: "Internal server error. Please try again later." },
       { status: 500 }
