@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import sgMail from "@sendgrid/mail";
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
-
 interface ContactSubmission {
   name: string;
   email: string;
@@ -46,6 +44,16 @@ export async function POST(request: NextRequest) {
     };
 
     console.log("Contact form submission:", JSON.stringify(submission));
+
+    if (!process.env.SENDGRID_API_KEY) {
+      console.error("SENDGRID_API_KEY is not set");
+      return NextResponse.json(
+        { error: "Email service is not configured." },
+        { status: 500 }
+      );
+    }
+
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
     await sgMail.send({
       to: "michaela@kpbc.ca",
