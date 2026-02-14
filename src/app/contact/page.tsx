@@ -9,6 +9,7 @@ export default function ContactPage() {
     name: "",
     email: "",
     company: "",
+    area: "",
     service: "",
     message: "",
   });
@@ -27,7 +28,7 @@ export default function ContactPage() {
 
       if (response.ok) {
         setStatus("success");
-        setFormData({ name: "", email: "", company: "", service: "", message: "" });
+        setFormData({ name: "", email: "", company: "", area: "", service: "", message: "" });
       } else {
         setStatus("error");
       }
@@ -134,8 +135,27 @@ export default function ContactPage() {
                         />
                       </div>
                       <div>
+                        <label htmlFor="area" className="block text-sm font-medium text-muted mb-2">
+                          Area of Interest
+                        </label>
+                        <select
+                          id="area"
+                          value={formData.area}
+                          onChange={(e) => setFormData({ ...formData, area: e.target.value, service: "" })}
+                          className="w-full px-4 py-3 rounded-xl bg-surface border border-surface-light text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-colors"
+                        >
+                          <option value="">Select an area</option>
+                          <option value="services">Services</option>
+                          <option value="products">Products</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {(formData.area === "services" || formData.area === "products") && (
+                      <div>
                         <label htmlFor="service" className="block text-sm font-medium text-muted mb-2">
-                          Service of Interest
+                          {formData.area === "services" ? "Select a Service" : "Select a Product"}
                         </label>
                         <select
                           id="service"
@@ -143,18 +163,29 @@ export default function ContactPage() {
                           onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                           className="w-full px-4 py-3 rounded-xl bg-surface border border-surface-light text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-colors"
                         >
-                          <option value="">Select a service</option>
-                          <option value="software-development">Software Development</option>
-                          <option value="application-development">Application Development</option>
-                          <option value="website-development">Website Development</option>
-                          <option value="cybersecurity">Cybersecurity</option>
-                          <option value="digital-transformation">Digital Transformation</option>
-                          <option value="bpr">Business Process Reengineering</option>
-                          <option value="it-consulting">IT Consulting & Support</option>
-                          <option value="product-demo">Product Demo</option>
+                          {formData.area === "services" ? (
+                            <>
+                              <option value="">Select a service</option>
+                              <option value="software-development">Software Development</option>
+                              <option value="application-development">Application Development</option>
+                              <option value="website-development">Website Development</option>
+                              <option value="cybersecurity">Cybersecurity</option>
+                              <option value="digital-transformation">Digital Transformation</option>
+                              <option value="bpr">Business Process Reengineering</option>
+                              <option value="it-consulting">IT Consulting & Support</option>
+                            </>
+                          ) : (
+                            <>
+                              <option value="">Select a product</option>
+                              <option value="dms">Document Management System</option>
+                              <option value="lms">Learning Management System</option>
+                              <option value="crm">Customer Relationship Management</option>
+                              <option value="sis">Student Information System</option>
+                            </>
+                          )}
                         </select>
                       </div>
-                    </div>
+                    )}
 
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium text-muted mb-2">
