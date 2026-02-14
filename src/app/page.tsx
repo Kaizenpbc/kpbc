@@ -69,15 +69,21 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/services"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-surface-light text-foreground font-semibold text-lg hover:bg-surface-light transition-colors"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-accent text-white font-semibold text-lg hover:opacity-90 transition-opacity shadow-lg shadow-primary/25"
               >
                 Our Services
+                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </Link>
               <Link
                 href="/products"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-surface-light text-foreground font-semibold text-lg hover:bg-surface-light transition-colors"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-accent text-white font-semibold text-lg hover:opacity-90 transition-opacity shadow-lg shadow-primary/25"
               >
                 Our Products
+                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </Link>
             </div>
           </motion.div>
