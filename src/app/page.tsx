@@ -4,45 +4,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 
-const services = [
-  {
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-      </svg>
-    ),
-    title: "Software Development",
-    description: "Custom applications, web & mobile development, and API integrations tailored to your business needs.",
-  },
-  {
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-      </svg>
-    ),
-    title: "Cybersecurity",
-    description: "Protect your digital assets with comprehensive security audits, threat monitoring, and compliance solutions.",
-  },
-  {
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    ),
-    title: "Digital Transformation",
-    description: "Modernize your operations with strategic technology adoption and business process reengineering.",
-  },
-  {
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
-      </svg>
-    ),
-    title: "IT Consulting & Support",
-    description: "Strategic IT guidance, managed services, and dedicated helpdesk support to keep your business running.",
-  },
-];
-
 const products = [
   { abbr: "DMS", name: "Document Management System", description: "Organize, store, and retrieve documents with ease." },
   { abbr: "LMS", name: "Learning Management System", description: "Deliver and track training programs seamlessly." },
@@ -97,15 +58,6 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-accent text-white font-semibold text-lg hover:opacity-90 transition-opacity glow"
-              >
-                Get Started
-                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-              <Link
                 href="/services"
                 className="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-surface-light text-foreground font-semibold text-lg hover:bg-surface-light transition-colors"
               >
@@ -143,46 +95,6 @@ export default function Home() {
               </AnimatedSection>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              What We <span className="gradient-text">Offer</span>
-            </h2>
-            <p className="text-muted max-w-2xl mx-auto">
-              Comprehensive IT solutions designed to accelerate your growth and secure your digital future.
-            </p>
-          </AnimatedSection>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {services.map((service, i) => (
-              <AnimatedSection key={service.title} delay={i * 0.1}>
-                <div className="group p-8 rounded-2xl bg-surface border border-surface-light hover:border-primary/30 transition-all duration-300 glow-hover h-full">
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold text-white mb-3">{service.title}</h3>
-                  <p className="text-muted leading-relaxed">{service.description}</p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-
-          <AnimatedSection className="text-center mt-12">
-            <Link
-              href="/services"
-              className="inline-flex items-center text-primary hover:text-primary-light font-medium transition-colors"
-            >
-              View All Services
-              <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </AnimatedSection>
         </div>
       </section>
 
