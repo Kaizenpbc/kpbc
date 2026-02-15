@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
 
     const { error } = await resend.emails.send({
       from: "KPBC Contact Form <onboarding@resend.dev>",
-      to: "michaela@kpbc.ca",
+      to: "kpbcma@gmail.com",
       replyTo: submission.email,
       subject: `New Contact Form: ${submission.name}`,
       html: `
