@@ -15,9 +15,13 @@ export default function ContactPage() {
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
+  const [debugInfo, setDebugInfo] = useState<string>("");
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setStatus("loading");
+    setDebugInfo("Sending request...");
+    console.log("[CONTACT FORM] Submitting:", JSON.stringify(formData));
 
     try {
       const response = await fetch("/api/contact", {
@@ -26,14 +30,22 @@ export default function ContactPage() {
         body: JSON.stringify(formData),
       });
 
+      const data = await response.json();
+      console.log("[CONTACT FORM] Response status:", response.status);
+      console.log("[CONTACT FORM] Response body:", JSON.stringify(data));
+
       if (response.ok) {
         setStatus("success");
+        setDebugInfo(`Success! Email ID: ${data.id || "N/A"}`);
         setFormData({ name: "", email: "", company: "", area: "", service: "", message: "" });
       } else {
         setStatus("error");
+        setDebugInfo(`Error ${response.status}: ${data.error || "Unknown"} | Debug: ${JSON.stringify(data.debug) || "none"}`);
       }
-    } catch {
+    } catch (err) {
+      console.error("[CONTACT FORM] Fetch error:", err);
       setStatus("error");
+      setDebugInfo(`Network error: ${err instanceof Error ? err.message : String(err)}`);
     }
   };
 
@@ -204,7 +216,16 @@ export default function ContactPage() {
 
                     {status === "error" && (
                       <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
-                        Something went wrong. Please try again or email us directly.
+                        <p>Something went wrong. Please try again or email us directly.</p>
+                        {debugInfo && (
+                          <pre className="mt-2 text-xs text-red-300/70 whitespace-pre-wrap break-all">{debugInfo}</pre>
+                        )}
+                      </div>
+                    )}
+
+                    {status === "success" && debugInfo && (
+                      <div className="p-3 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 text-xs">
+                        <pre className="whitespace-pre-wrap break-all">{debugInfo}</pre>
                       </div>
                     )}
 
