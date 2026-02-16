@@ -92,6 +92,9 @@ export default function ContactPage() {
                     </div>
                     <h3 className="text-xl font-semibold text-white mb-2">Message Sent!</h3>
                     <p className="text-muted mb-6">Thank you for reaching out. We&apos;ll get back to you within 24 hours.</p>
+                    {debugInfo && (
+                      <pre className="mb-4 p-3 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 text-xs whitespace-pre-wrap break-all">{debugInfo}</pre>
+                    )}
                     <button
                       onClick={() => setStatus("idle")}
                       className="text-primary hover:text-primary-light font-medium transition-colors"
@@ -220,12 +223,6 @@ export default function ContactPage() {
                         {debugInfo && (
                           <pre className="mt-2 text-xs text-red-300/70 whitespace-pre-wrap break-all">{debugInfo}</pre>
                         )}
-                      </div>
-                    )}
-
-                    {status === "success" && debugInfo && (
-                      <div className="p-3 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 text-xs">
-                        <pre className="whitespace-pre-wrap break-all">{debugInfo}</pre>
                       </div>
                     )}
 
