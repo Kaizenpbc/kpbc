@@ -71,7 +71,7 @@ export async function POST(request: NextRequest) {
     console.log("[CONTACT API] Resend client created, sending email...");
 
     const { data, error } = await resend.emails.send({
-      from: "KPBC Contact Form <onboarding@resend.dev>",
+      from: "KPBC Contact Form <noreply@kpbc.com>",
       to: "kpbcma@gmail.com",
       replyTo: submission.email,
       subject: `New Contact Form: ${submission.name}`,
