@@ -107,7 +107,6 @@ export default function ServicesPage() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
               Our <span className="gradient-text">Services</span>
             </h1>
-            <p className="text-2xl font-bold text-red-500 mt-4">TEST - DEPLOY CHECK - v2</p>
             <p className="text-lg sm:text-xl text-muted leading-relaxed">
               From software development to cybersecurity, we offer a full spectrum of IT services designed to transform your business and keep you ahead of the competition.
             </p>
