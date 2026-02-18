@@ -77,9 +77,15 @@ export default function Home() {
             </p>
           </AnimatedSection>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "1.5rem" }}>
             {services.map((service, i) => (
-              <AnimatedSection key={service.abbr} delay={i * 0.1}>
+              <motion.div
+                key={service.abbr}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+              >
                 <div className="group relative p-8 rounded-2xl bg-surface border border-surface-light hover:border-primary/30 transition-all duration-300 glow-hover text-center h-full">
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mx-auto mb-6">
                     <span className="text-2xl font-bold gradient-text">{service.abbr}</span>
@@ -87,7 +93,7 @@ export default function Home() {
                   <h3 className="text-lg font-semibold text-white mb-2">{service.name}</h3>
                   <p className="text-muted text-sm">{service.description}</p>
                 </div>
-              </AnimatedSection>
+              </motion.div>
             ))}
           </div>
 
