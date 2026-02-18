@@ -10,6 +10,7 @@ const services = [
   { abbr: "AD", name: "Application Development", description: "End-to-end application development from concept to deployment using modern frameworks." },
   { abbr: "WD", name: "Website Development", description: "Responsive, fast, and SEO-optimized websites that connect you with your audience." },
   { abbr: "CS", name: "Cybersecurity", description: "Protect your digital assets with comprehensive security audits, threat monitoring, and compliance." },
+  { abbr: "PT", name: "Penetration Testing", description: "Identify vulnerabilities before attackers do with thorough security testing and detailed remediation reports." },
   { abbr: "DT", name: "Digital Transformation", description: "Modernize your operations with strategic technology adoption and process automation." },
   { abbr: "BPR", name: "Business Process Reengineering", description: "Redesign business processes for dramatic improvements in productivity and efficiency." },
   { abbr: "ITC", name: "IT Consulting & Support", description: "Strategic IT guidance, managed services, and dedicated helpdesk support." },
