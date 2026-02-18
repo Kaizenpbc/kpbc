@@ -74,7 +74,7 @@ export default function AboutPage() {
             className="max-w-3xl"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              About <span className="gradient-text">KPBC</span>
+              About <span className="gradient-text">Kaizen Project &amp; Business Consultants Inc.</span>
             </h1>
             <p className="text-lg sm:text-xl text-muted leading-relaxed">
               We are a team of passionate technologists dedicated to helping businesses harness the power of technology. Since our founding, KPBC has been at the forefront of delivering innovative IT solutions that drive real results.
@@ -103,7 +103,7 @@ export default function AboutPage() {
                 {[
                   { number: "50+", label: "Projects Delivered" },
                   { number: "99%", label: "Client Retention" },
-                  { number: "10+", label: "Years of Experience" },
+                  { number: "25+", label: "Years of Experience" },
                   { number: "4", label: "Enterprise Products" },
                 ].map((stat) => (
                   <div key={stat.label} className="p-6 rounded-2xl bg-background border border-surface-light text-center">

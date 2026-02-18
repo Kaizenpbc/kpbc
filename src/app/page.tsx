@@ -28,7 +28,7 @@ const stats = [
   { value: "50+", label: "Projects Delivered" },
   { value: "99%", label: "Client Satisfaction" },
   { value: "24/7", label: "Support Available" },
-  { value: "10+", label: "Years Experience" },
+  { value: "25+", label: "Years Experience" },
 ];
 
 export default function Home() {
