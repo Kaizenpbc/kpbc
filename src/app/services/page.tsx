@@ -42,6 +42,15 @@ const services = [
     gradient: "from-red-500 to-rose-500",
   },
   {
+    id: "penetration-testing",
+    abbr: "PT",
+    title: "Penetration Testing",
+    tagline: "Test. Exploit. Fortify.",
+    description: "Identify vulnerabilities before attackers do. Our certified penetration testers simulate real-world attacks across your networks, applications, and infrastructure to uncover security weaknesses and provide actionable remediation guidance.",
+    features: ["Network & Infrastructure Testing", "Web Application Penetration Testing", "Social Engineering Assessments", "Detailed Remediation Reports"],
+    gradient: "from-orange-500 to-red-500",
+  },
+  {
     id: "digital-transformation",
     abbr: "DT",
     title: "Business Digital Transformation",
