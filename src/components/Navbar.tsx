@@ -12,6 +12,7 @@ const serviceItems = [
   { href: "/services#digital-transformation", label: "Digital Transformation" },
   { href: "/services#business-process-reengineering", label: "Business Process Reengineering" },
   { href: "/services#it-consulting", label: "IT Consulting & Support" },
+  { href: "/services#staff-augmentation", label: "Staff Augmentation" },
 ];
 
 const productItems = [

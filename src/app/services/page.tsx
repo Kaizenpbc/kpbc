@@ -68,6 +68,15 @@ const services = [
     features: ["IT Strategy & Planning", "Managed IT Services", "24/7 Helpdesk Support", "Infrastructure Management"],
     gradient: "from-indigo-500 to-blue-500",
   },
+  {
+    id: "staff-augmentation",
+    abbr: "SA",
+    title: "Staff Augmentation",
+    tagline: "Scale. Integrate. Deliver.",
+    description: "Extend your team with skilled IT professionals who integrate seamlessly into your workflows. Whether you need specialized expertise for a critical project or additional capacity to meet deadlines, our staff augmentation services provide the right talent, right when you need it.",
+    features: ["Dedicated Development Teams", "Specialized Skill Sourcing", "Flexible Engagement Models", "Rapid Team Scaling"],
+    gradient: "from-cyan-500 to-sky-500",
+  },
 ];
 
 export default function ServicesPage() {

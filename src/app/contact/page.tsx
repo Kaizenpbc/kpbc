@@ -188,6 +188,7 @@ export default function ContactPage() {
                               <option value="digital-transformation">Digital Transformation</option>
                               <option value="bpr">Business Process Reengineering</option>
                               <option value="it-consulting">IT Consulting & Support</option>
+                              <option value="staff-augmentation">Staff Augmentation</option>
                             </>
                           ) : (
                             <>

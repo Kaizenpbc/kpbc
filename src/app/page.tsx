@@ -13,6 +13,7 @@ const services = [
   { abbr: "DT", name: "Digital Transformation", description: "Modernize your operations with strategic technology adoption and process automation." },
   { abbr: "BPR", name: "Business Process Reengineering", description: "Redesign business processes for dramatic improvements in productivity and efficiency." },
   { abbr: "ITC", name: "IT Consulting & Support", description: "Strategic IT guidance, managed services, and dedicated helpdesk support." },
+  { abbr: "SA", name: "Staff Augmentation", description: "Extend your team with skilled IT professionals who integrate seamlessly into your workflows." },
 ];
 
 const products = [
