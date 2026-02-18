@@ -5,15 +5,15 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const serviceItems = [
-  { href: "/services#software-development", label: "Software Development" },
-  { href: "/services#application-development", label: "Application Development" },
-  { href: "/services#website-development", label: "Website Development" },
-  { href: "/services#cybersecurity", label: "Cybersecurity" },
-  { href: "/services#penetration-testing", label: "Penetration Testing" },
-  { href: "/services#digital-transformation", label: "Digital Transformation" },
-  { href: "/services#business-process-reengineering", label: "Business Process Reengineering" },
-  { href: "/services#it-consulting", label: "IT Consulting & Support" },
-  { href: "/services#staff-augmentation", label: "Staff Augmentation" },
+  { href: "/services#software-development", abbr: "SD", label: "Software Development" },
+  { href: "/services#application-development", abbr: "AD", label: "Application Development" },
+  { href: "/services#website-development", abbr: "WD", label: "Website Development" },
+  { href: "/services#cybersecurity", abbr: "CS", label: "Cybersecurity" },
+  { href: "/services#penetration-testing", abbr: "PT", label: "Penetration Testing" },
+  { href: "/services#digital-transformation", abbr: "DT", label: "Digital Transformation" },
+  { href: "/services#business-process-reengineering", abbr: "BPR", label: "Business Process Reengineering" },
+  { href: "/services#it-consulting", abbr: "ITC", label: "IT Consulting & Support" },
+  { href: "/services#staff-augmentation", abbr: "SA", label: "Staff Augmentation" },
 ];
 
 const productItems = [
@@ -27,9 +27,11 @@ const productItems = [
 function DesktopDropdown({
   label,
   items,
+  wide,
 }: {
   label: string;
-  items: { href: string; label: string }[];
+  items: { href: string; abbr?: string; label: string }[];
+  wide?: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -79,16 +81,23 @@ function DesktopDropdown({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.15 }}
-            className="absolute top-full left-0 mt-1 w-72 rounded-xl glass border border-surface-light shadow-2xl overflow-hidden"
+            className={`absolute top-full left-0 mt-1 rounded-xl glass border border-surface-light shadow-2xl overflow-hidden ${wide ? "w-[520px] -left-40" : "w-72"}`}
           >
-            <div className="py-2">
+            <div className={wide ? "grid grid-cols-2 gap-x-2 p-4" : "py-2"}>
               {items.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="block px-4 py-2.5 text-sm text-muted hover:text-white hover:bg-surface-light transition-colors"
+                  className={
+                    wide
+                      ? "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-muted hover:text-white hover:bg-surface-light transition-colors"
+                      : "block px-4 py-2.5 text-sm text-muted hover:text-white hover:bg-surface-light transition-colors"
+                  }
                   onClick={() => setOpen(false)}
                 >
+                  {wide && item.abbr && (
+                    <span className="text-primary font-bold text-xs w-8 shrink-0">{item.abbr}</span>
+                  )}
                   {item.label}
                 </Link>
               ))}
@@ -106,7 +115,7 @@ function MobileDropdown({
   onNavigate,
 }: {
   label: string;
-  items: { href: string; label: string }[];
+  items: { href: string; abbr?: string; label: string }[];
   onNavigate: () => void;
 }) {
   const [open, setOpen] = useState(false);
@@ -141,9 +150,12 @@ function MobileDropdown({
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="block px-4 py-2 rounded-lg text-sm text-muted hover:text-white hover:bg-surface-light transition-colors"
+                  className="flex items-center gap-3 px-4 py-2 rounded-lg text-sm text-muted hover:text-white hover:bg-surface-light transition-colors"
                   onClick={onNavigate}
                 >
+                  {item.abbr && (
+                    <span className="text-primary font-bold text-xs w-8 shrink-0">{item.abbr}</span>
+                  )}
                   {item.label}
                 </Link>
               ))}
@@ -184,7 +196,7 @@ export default function Navbar() {
             >
               About
             </Link>
-            <DesktopDropdown label="Services" items={serviceItems} />
+            <DesktopDropdown label="Services" items={serviceItems} wide />
             <DesktopDropdown label="Products" items={productItems} />
             <Link
               href="/contact"
