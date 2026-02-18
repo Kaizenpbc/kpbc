@@ -103,7 +103,7 @@ export default function AboutPage() {
                 {[
                   { number: "50+", label: "Projects Delivered" },
                   { number: "99%", label: "Client Retention" },
-                  { number: "10+", label: "Years of Experience" },
+                  { number: "25+", label: "Years of Experience" },
                   { number: "4", label: "Enterprise Products" },
                 ].map((stat) => (
                   <div key={stat.label} className="p-6 rounded-2xl bg-background border border-surface-light text-center">
