@@ -74,7 +74,7 @@ export default function AboutPage() {
             className="max-w-3xl"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              About <span className="gradient-text">KPBC</span>
+              About <span className="gradient-text">Kaizen Project &amp; Business Consultants Inc.</span>
             </h1>
             <p className="text-lg sm:text-xl text-muted leading-relaxed">
               We are a team of passionate technologists dedicated to helping businesses harness the power of technology. Since our founding, KPBC has been at the forefront of delivering innovative IT solutions that drive real results.
