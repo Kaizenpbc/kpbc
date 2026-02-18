@@ -76,14 +76,11 @@ export default function Home() {
             </p>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="grid grid-cols-2 gap-x-12 gap-y-4 max-w-3xl mx-auto">
             {services.map((service) => (
-              <div key={service.abbr} className="group relative p-8 rounded-2xl bg-surface border border-surface-light hover:border-primary/30 transition-all duration-300 glow-hover text-center">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mx-auto mb-6">
-                  <span className="text-2xl font-bold gradient-text">{service.abbr}</span>
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{service.name}</h3>
-                <p className="text-muted text-sm">{service.description}</p>
+              <div key={service.abbr} className="flex items-center gap-3 py-2">
+                <span className="text-primary font-bold text-sm">{service.abbr}</span>
+                <span className="text-white text-lg">{service.name}</span>
               </div>
             ))}
           </div>
