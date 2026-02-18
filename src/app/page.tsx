@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
 import HeroSlider from "@/components/HeroSlider";
 
@@ -13,6 +13,7 @@ const services = [
   { abbr: "DT", name: "Digital Transformation", description: "Modernize your operations with strategic technology adoption and process automation." },
   { abbr: "BPR", name: "Business Process Reengineering", description: "Redesign business processes for dramatic improvements in productivity and efficiency." },
   { abbr: "ITC", name: "IT Consulting & Support", description: "Strategic IT guidance, managed services, and dedicated helpdesk support." },
+  { abbr: "SA", name: "Staff Augmentation", description: "Extend your team with skilled IT professionals who integrate seamlessly into your workflows." },
 ];
 
 const products = [
@@ -30,10 +31,24 @@ const stats = [
 ];
 
 export default function Home() {
+  const servicesRef = useRef<HTMLElement>(null);
+  const [servicesVisible, setServicesVisible] = useState(false);
+
+  useEffect(() => {
+    const el = servicesRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setServicesVisible(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       {/* Hero Slider */}
-      <HeroSlider />
+      <HeroSlider paused={servicesVisible} />
 
       {/* Stats Section */}
       <section className="py-16 border-y border-surface-light bg-surface">
@@ -50,7 +65,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="py-24">
+      <section ref={servicesRef} className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
@@ -61,17 +76,15 @@ export default function Home() {
             </p>
           </AnimatedSection>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, i) => (
-              <AnimatedSection key={service.abbr} delay={i * 0.1}>
-                <div className="group relative p-8 rounded-2xl bg-surface border border-surface-light hover:border-primary/30 transition-all duration-300 glow-hover text-center h-full">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mx-auto mb-6">
-                    <span className="text-2xl font-bold gradient-text">{service.abbr}</span>
-                  </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{service.name}</h3>
-                  <p className="text-muted text-sm">{service.description}</p>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {services.map((service) => (
+              <div key={service.abbr} className="group relative p-8 rounded-2xl bg-surface border border-surface-light hover:border-primary/30 transition-all duration-300 glow-hover text-center">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mx-auto mb-6">
+                  <span className="text-2xl font-bold gradient-text">{service.abbr}</span>
                 </div>
-              </AnimatedSection>
+                <h3 className="text-lg font-semibold text-white mb-2">{service.name}</h3>
+                <p className="text-muted text-sm">{service.description}</p>
+              </div>
             ))}
           </div>
 

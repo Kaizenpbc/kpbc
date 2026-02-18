@@ -68,6 +68,15 @@ const services = [
     features: ["IT Strategy & Planning", "Managed IT Services", "24/7 Helpdesk Support", "Infrastructure Management"],
     gradient: "from-indigo-500 to-blue-500",
   },
+  {
+    id: "staff-augmentation",
+    abbr: "SA",
+    title: "Staff Augmentation",
+    tagline: "Scale. Integrate. Deliver.",
+    description: "Extend your team with skilled IT professionals who integrate seamlessly into your workflows. Whether you need specialized expertise for a critical project or additional capacity to meet deadlines, our staff augmentation services provide the right talent, right when you need it.",
+    features: ["Dedicated Development Teams", "Specialized Skill Sourcing", "Flexible Engagement Models", "Rapid Team Scaling"],
+    gradient: "from-cyan-500 to-sky-500",
+  },
 ];
 
 export default function ServicesPage() {
@@ -89,6 +98,7 @@ export default function ServicesPage() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
               Our <span className="gradient-text">Services</span>
             </h1>
+            <p className="text-2xl font-bold text-red-500 mt-4">TEST - DEPLOY CHECK - v2</p>
             <p className="text-lg sm:text-xl text-muted leading-relaxed">
               From software development to cybersecurity, we offer a full spectrum of IT services designed to transform your business and keep you ahead of the competition.
             </p>
@@ -99,62 +109,56 @@ export default function ServicesPage() {
       {/* Services */}
       <section className="py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-16">
-            {services.map((service, i) => (
-              <AnimatedSection key={service.id} delay={i * 0.05}>
-                <div
-                  id={service.id}
-                  className="rounded-2xl bg-background border border-surface-light overflow-hidden scroll-mt-24"
-                >
-                  {/* Header Bar */}
-                  <div className={`h-1.5 bg-gradient-to-r ${service.gradient}`} />
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            {services.map((service) => (
+              <div
+                key={service.id}
+                id={service.id}
+                className="rounded-2xl bg-background border border-surface-light overflow-hidden scroll-mt-24 flex flex-col"
+              >
+                {/* Header Bar */}
+                <div className={`h-1.5 bg-gradient-to-r ${service.gradient}`} />
 
-                  <div className="p-8 lg:p-12">
-                    <div className="flex flex-col lg:flex-row gap-10">
-                      {/* Left - Info */}
-                      <div className="flex-1">
-                        <div className="flex items-center gap-4 mb-4">
-                          <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} bg-opacity-20 flex items-center justify-center`}>
-                            <span className="text-xl font-bold text-white">{service.abbr}</span>
-                          </div>
-                          <div>
-                            <h2 className="text-2xl font-bold text-white">{service.title}</h2>
-                            <p className="text-muted text-sm">{service.tagline}</p>
-                          </div>
-                        </div>
-                        <p className="text-muted leading-relaxed mt-6">{service.description}</p>
-                      </div>
-
-                      {/* Right - Features */}
-                      <div className="lg:w-80 flex-shrink-0">
-                        <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Key Features</h3>
-                        <div className="space-y-3">
-                          {service.features.map((feature) => (
-                            <div key={feature} className="flex items-center text-sm text-muted">
-                              <svg className="w-4 h-4 text-accent mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                              </svg>
-                              {feature}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
+                <div className="p-8 flex flex-col flex-1">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center flex-shrink-0`}>
+                      <span className="text-xl font-bold text-white">{service.abbr}</span>
                     </div>
-
-                    <div className="mt-8 pt-6 border-t border-surface-light">
-                      <Link
-                        href="/contact"
-                        className="inline-flex items-center text-primary hover:text-primary-light font-medium transition-colors text-sm"
-                      >
-                        Get in Touch
-                        <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </Link>
+                    <div>
+                      <h2 className="text-xl font-bold text-white">{service.title}</h2>
+                      <p className="text-muted text-sm">{service.tagline}</p>
                     </div>
                   </div>
+
+                  <p className="text-muted leading-relaxed text-sm mt-2">{service.description}</p>
+
+                  <div className="mt-6">
+                    <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-3">Key Features</h3>
+                    <div className="space-y-2">
+                      {service.features.map((feature) => (
+                        <div key={feature} className="flex items-center text-sm text-muted">
+                          <svg className="w-4 h-4 text-accent mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-auto pt-6 border-t border-surface-light mt-8">
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center text-primary hover:text-primary-light font-medium transition-colors text-sm"
+                    >
+                      Get in Touch
+                      <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </Link>
+                  </div>
                 </div>
-              </AnimatedSection>
+              </div>
             ))}
           </div>
         </div>
