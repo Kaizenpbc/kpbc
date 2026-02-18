@@ -108,49 +108,44 @@ export default function ServicesPage() {
       {/* Services */}
       <section className="py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, i) => (
               <AnimatedSection key={service.id} delay={i * 0.05}>
                 <div
                   id={service.id}
-                  className="rounded-2xl bg-background border border-surface-light overflow-hidden scroll-mt-24"
+                  className="rounded-2xl bg-background border border-surface-light overflow-hidden scroll-mt-24 h-full flex flex-col"
                 >
                   {/* Header Bar */}
                   <div className={`h-1.5 bg-gradient-to-r ${service.gradient}`} />
 
-                  <div className="p-8 lg:p-12">
-                    <div className="flex flex-col lg:flex-row gap-10">
-                      {/* Left - Info */}
-                      <div className="flex-1">
-                        <div className="flex items-center gap-4 mb-4">
-                          <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} bg-opacity-20 flex items-center justify-center`}>
-                            <span className="text-xl font-bold text-white">{service.abbr}</span>
-                          </div>
-                          <div>
-                            <h2 className="text-2xl font-bold text-white">{service.title}</h2>
-                            <p className="text-muted text-sm">{service.tagline}</p>
-                          </div>
-                        </div>
-                        <p className="text-muted leading-relaxed mt-6">{service.description}</p>
+                  <div className="p-8 flex flex-col flex-1">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} bg-opacity-20 flex items-center justify-center flex-shrink-0`}>
+                        <span className="text-xl font-bold text-white">{service.abbr}</span>
                       </div>
-
-                      {/* Right - Features */}
-                      <div className="lg:w-80 flex-shrink-0">
-                        <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Key Features</h3>
-                        <div className="space-y-3">
-                          {service.features.map((feature) => (
-                            <div key={feature} className="flex items-center text-sm text-muted">
-                              <svg className="w-4 h-4 text-accent mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                              </svg>
-                              {feature}
-                            </div>
-                          ))}
-                        </div>
+                      <div>
+                        <h2 className="text-xl font-bold text-white">{service.title}</h2>
+                        <p className="text-muted text-sm">{service.tagline}</p>
                       </div>
                     </div>
 
-                    <div className="mt-8 pt-6 border-t border-surface-light">
+                    <p className="text-muted leading-relaxed text-sm mt-2">{service.description}</p>
+
+                    <div className="mt-6">
+                      <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-3">Key Features</h3>
+                      <div className="space-y-2">
+                        {service.features.map((feature) => (
+                          <div key={feature} className="flex items-center text-sm text-muted">
+                            <svg className="w-4 h-4 text-accent mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                            {feature}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="mt-auto pt-6 border-t border-surface-light mt-8">
                       <Link
                         href="/contact"
                         className="inline-flex items-center text-primary hover:text-primary-light font-medium transition-colors text-sm"
