@@ -107,40 +107,21 @@ export default function HeroSlider({ paused = false }: { paused?: boolean }) {
           <div className="relative z-10 flex items-center justify-center h-full">
             <div className="text-center px-4 max-w-4xl mx-auto">
               {/* Subtitle */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="text-sm sm:text-base uppercase tracking-[0.3em] text-white/80 mb-4 font-medium"
-              >
+              <p className="text-sm sm:text-base uppercase tracking-[0.3em] text-white/80 mb-4 font-medium">
                 {slides[current].subtitle}
-              </motion.p>
+              </p>
 
               {/* Decorative line */}
-              <motion.div
-                initial={{ opacity: 0, scaleX: 0 }}
-                animate={{ opacity: 1, scaleX: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="w-16 h-0.5 bg-gradient-to-r from-primary to-accent mx-auto mb-6"
-              />
+              <div className="w-16 h-0.5 bg-gradient-to-r from-primary to-accent mx-auto mb-6" />
 
               {/* Title */}
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4"
-              >
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4">
                 {slides[current].title}{" "}
                 <span className="gradient-text">{slides[current].highlight}</span>
-              </motion.h1>
+              </h1>
 
               {/* CTA Button */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.7 }}
-              >
+              <div>
                 <Link
                   href={slides[current].cta.href}
                   className="inline-flex items-center px-8 py-4 mt-8 rounded-xl bg-gradient-to-r from-primary to-accent text-white font-semibold text-lg hover:opacity-90 transition-opacity shadow-lg shadow-primary/25"
@@ -160,7 +141,7 @@ export default function HeroSlider({ paused = false }: { paused?: boolean }) {
                     />
                   </svg>
                 </Link>
-              </motion.div>
+              </div>
             </div>
           </div>
         </motion.div>
