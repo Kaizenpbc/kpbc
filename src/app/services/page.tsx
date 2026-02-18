@@ -108,12 +108,13 @@ export default function ServicesPage() {
       {/* Services */}
       <section className="py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-8">
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "2rem" }}>
             {services.map((service) => (
               <div
                 key={service.id}
                 id={service.id}
-                className="rounded-2xl bg-background border border-surface-light overflow-hidden scroll-mt-24 h-full flex flex-col"
+                style={{ flex: "0 0 calc(50% - 1rem)", minWidth: 0 }}
+                className="rounded-2xl bg-background border border-surface-light overflow-hidden scroll-mt-24 flex flex-col"
               >
                 {/* Header Bar */}
                 <div className={`h-1.5 bg-gradient-to-r ${service.gradient}`} />
