@@ -9,6 +9,7 @@ const serviceItems = [
   { href: "/services#application-development", label: "Application Development" },
   { href: "/services#website-development", label: "Website Development" },
   { href: "/services#cybersecurity", label: "Cybersecurity" },
+  { href: "/services#penetration-testing", label: "Penetration Testing" },
   { href: "/services#digital-transformation", label: "Digital Transformation" },
   { href: "/services#business-process-reengineering", label: "Business Process Reengineering" },
   { href: "/services#it-consulting", label: "IT Consulting & Support" },

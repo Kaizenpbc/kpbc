@@ -10,6 +10,7 @@ const footerLinks = {
   Services: [
     { href: "/services#software-development", label: "Software Development" },
     { href: "/services#cybersecurity", label: "Cybersecurity" },
+    { href: "/services#penetration-testing", label: "Penetration Testing" },
     { href: "/services#digital-transformation", label: "Digital Transformation" },
     { href: "/services#it-consulting", label: "IT Consulting" },
     { href: "/services#staff-augmentation", label: "Staff Augmentation" },
