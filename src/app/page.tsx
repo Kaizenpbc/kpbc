@@ -47,6 +47,9 @@ export default function Home() {
 
   return (
     <>
+      {/* Deploy Check */}
+      <div className="bg-yellow-500 text-black text-center py-2 font-bold">TEST - DEPLOY CHECK - v2</div>
+
       {/* Hero Slider */}
       <HeroSlider paused={servicesVisible} />
 
