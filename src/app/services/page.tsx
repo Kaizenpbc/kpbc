@@ -108,9 +108,15 @@ export default function ServicesPage() {
       {/* Services */}
       <section className="py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "2rem" }}>
             {services.map((service, i) => (
-              <AnimatedSection key={service.id} delay={i * 0.05}>
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: i * 0.05, ease: "easeOut" }}
+              >
                 <div
                   id={service.id}
                   className="rounded-2xl bg-background border border-surface-light overflow-hidden scroll-mt-24 h-full flex flex-col"
@@ -158,7 +164,7 @@ export default function ServicesPage() {
                     </div>
                   </div>
                 </div>
-              </AnimatedSection>
+              </motion.div>
             ))}
           </div>
         </div>
