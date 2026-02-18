@@ -67,19 +67,16 @@ export default function HeroSlider({ paused = false }: { paused?: boolean }) {
 
   const slideVariants = {
     enter: (dir: number) => ({
+      x: dir > 0 ? "100%" : "-100%",
       opacity: 0,
-      scale: 1.08,
-      x: dir > 0 ? 60 : -60,
     }),
     center: {
-      opacity: 1,
-      scale: 1,
       x: 0,
+      opacity: 1,
     },
     exit: (dir: number) => ({
+      x: dir > 0 ? "-100%" : "100%",
       opacity: 0,
-      scale: 0.95,
-      x: dir > 0 ? -60 : 60,
     }),
   };
 
@@ -95,7 +92,7 @@ export default function HeroSlider({ paused = false }: { paused?: boolean }) {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Slide Backgrounds */}
-      <AnimatePresence custom={direction} mode="popLayout">
+      <AnimatePresence custom={direction} initial={false}>
         <motion.div
           key={current}
           custom={direction}
