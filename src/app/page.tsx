@@ -77,7 +77,7 @@ export default function Home() {
             </p>
           </AnimatedSection>
 
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, i) => (
               <AnimatedSection key={service.abbr} delay={i * 0.1}>
                 <div className="group relative p-8 rounded-2xl bg-surface border border-surface-light hover:border-primary/30 transition-all duration-300 glow-hover text-center h-full">
