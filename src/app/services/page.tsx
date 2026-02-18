@@ -108,7 +108,7 @@ export default function ServicesPage() {
       {/* Services */}
       <section className="py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "2rem" }}>
+          <div className="services-grid">
             {services.map((service, i) => (
               <motion.div
                 key={service.id}

@@ -77,7 +77,7 @@ export default function Home() {
             </p>
           </AnimatedSection>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "1.5rem" }}>
+          <div className="services-grid">
             {services.map((service, i) => (
               <motion.div
                 key={service.abbr}

@@ -49,6 +49,24 @@ html {
   border: 1px solid rgba(59, 130, 246, 0.1);
 }
 
+/* Services 2-column grid — !important ensures override of any cascade layer / inline style */
+.services-grid {
+  display: grid !important;
+  grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  gap: 1.5rem !important;
+}
+
+@media (min-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 2rem !important;
+  }
+}
+
+.services-grid > * {
+  min-width: 0; /* prevent grid blowout from long content */
+}
+
 /* Animated gradient border */
 .gradient-border {
   position: relative;
