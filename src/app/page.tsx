@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 import HeroSlider from "@/components/HeroSlider";
 
@@ -77,23 +76,15 @@ export default function Home() {
             </p>
           </AnimatedSection>
 
-          <div className="services-grid">
-            {services.map((service, i) => (
-              <motion.div
-                key={service.abbr}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-              >
-                <div className="group relative p-8 rounded-2xl bg-surface border border-surface-light hover:border-primary/30 transition-all duration-300 glow-hover text-center h-full">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mx-auto mb-6">
-                    <span className="text-2xl font-bold gradient-text">{service.abbr}</span>
-                  </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{service.name}</h3>
-                  <p className="text-muted text-sm">{service.description}</p>
+          <div className="grid md:grid-cols-2 gap-6">
+            {services.map((service) => (
+              <div key={service.abbr} className="group relative p-8 rounded-2xl bg-surface border border-surface-light hover:border-primary/30 transition-all duration-300 glow-hover text-center h-full">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mx-auto mb-6">
+                  <span className="text-2xl font-bold gradient-text">{service.abbr}</span>
                 </div>
-              </motion.div>
+                <h3 className="text-lg font-semibold text-white mb-2">{service.name}</h3>
+                <p className="text-muted text-sm">{service.description}</p>
+              </div>
             ))}
           </div>
 

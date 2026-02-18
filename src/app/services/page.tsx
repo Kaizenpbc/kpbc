@@ -108,63 +108,56 @@ export default function ServicesPage() {
       {/* Services */}
       <section className="py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="services-grid">
-            {services.map((service, i) => (
-              <motion.div
+          <div className="grid md:grid-cols-2 gap-8">
+            {services.map((service) => (
+              <div
                 key={service.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: i * 0.05, ease: "easeOut" }}
+                id={service.id}
+                className="rounded-2xl bg-background border border-surface-light overflow-hidden scroll-mt-24 h-full flex flex-col"
               >
-                <div
-                  id={service.id}
-                  className="rounded-2xl bg-background border border-surface-light overflow-hidden scroll-mt-24 h-full flex flex-col"
-                >
-                  {/* Header Bar */}
-                  <div className={`h-1.5 bg-gradient-to-r ${service.gradient}`} />
+                {/* Header Bar */}
+                <div className={`h-1.5 bg-gradient-to-r ${service.gradient}`} />
 
-                  <div className="p-8 flex flex-col flex-1">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} bg-opacity-20 flex items-center justify-center flex-shrink-0`}>
-                        <span className="text-xl font-bold text-white">{service.abbr}</span>
-                      </div>
-                      <div>
-                        <h2 className="text-xl font-bold text-white">{service.title}</h2>
-                        <p className="text-muted text-sm">{service.tagline}</p>
-                      </div>
+                <div className="p-8 flex flex-col flex-1">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center flex-shrink-0`}>
+                      <span className="text-xl font-bold text-white">{service.abbr}</span>
                     </div>
-
-                    <p className="text-muted leading-relaxed text-sm mt-2">{service.description}</p>
-
-                    <div className="mt-6">
-                      <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-3">Key Features</h3>
-                      <div className="space-y-2">
-                        {service.features.map((feature) => (
-                          <div key={feature} className="flex items-center text-sm text-muted">
-                            <svg className="w-4 h-4 text-accent mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                            </svg>
-                            {feature}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="mt-auto pt-6 border-t border-surface-light mt-8">
-                      <Link
-                        href="/contact"
-                        className="inline-flex items-center text-primary hover:text-primary-light font-medium transition-colors text-sm"
-                      >
-                        Get in Touch
-                        <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </Link>
+                    <div>
+                      <h2 className="text-xl font-bold text-white">{service.title}</h2>
+                      <p className="text-muted text-sm">{service.tagline}</p>
                     </div>
                   </div>
+
+                  <p className="text-muted leading-relaxed text-sm mt-2">{service.description}</p>
+
+                  <div className="mt-6">
+                    <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-3">Key Features</h3>
+                    <div className="space-y-2">
+                      {service.features.map((feature) => (
+                        <div key={feature} className="flex items-center text-sm text-muted">
+                          <svg className="w-4 h-4 text-accent mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          </svg>
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-auto pt-6 border-t border-surface-light mt-8">
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center text-primary hover:text-primary-light font-medium transition-colors text-sm"
+                    >
+                      Get in Touch
+                      <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </Link>
+                  </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
