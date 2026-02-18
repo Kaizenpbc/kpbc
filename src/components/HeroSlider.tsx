@@ -42,7 +42,7 @@ const slides: Slide[] = [
 
 const AUTOPLAY_INTERVAL = 6000;
 
-export default function HeroSlider() {
+export default function HeroSlider({ paused = false }: { paused?: boolean }) {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
 
@@ -60,9 +60,10 @@ export default function HeroSlider() {
   }, []);
 
   useEffect(() => {
+    if (paused) return;
     const timer = setInterval(nextSlide, AUTOPLAY_INTERVAL);
     return () => clearInterval(timer);
-  }, [nextSlide]);
+  }, [nextSlide, paused]);
 
   const slideVariants = {
     enter: (dir: number) => ({

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 import HeroSlider from "@/components/HeroSlider";
@@ -31,10 +32,24 @@ const stats = [
 ];
 
 export default function Home() {
+  const servicesRef = useRef<HTMLElement>(null);
+  const [servicesVisible, setServicesVisible] = useState(false);
+
+  useEffect(() => {
+    const el = servicesRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setServicesVisible(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       {/* Hero Slider */}
-      <HeroSlider />
+      <HeroSlider paused={servicesVisible} />
 
       {/* Stats Section */}
       <section className="py-16 border-y border-surface-light bg-surface">
@@ -51,7 +66,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="py-24">
+      <section ref={servicesRef} className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
@@ -62,7 +77,7 @@ export default function Home() {
             </p>
           </AnimatedSection>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 gap-6">
             {services.map((service, i) => (
               <AnimatedSection key={service.abbr} delay={i * 0.1}>
                 <div className="group relative p-8 rounded-2xl bg-surface border border-surface-light hover:border-primary/30 transition-all duration-300 glow-hover text-center h-full">
