@@ -76,9 +76,9 @@ export default function Home() {
             </p>
           </AnimatedSection>
 
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "1.5rem" }}>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {services.map((service) => (
-              <div key={service.abbr} style={{ flex: "0 0 calc(50% - 0.75rem)", minWidth: 0 }} className="group relative p-8 rounded-2xl bg-surface border border-surface-light hover:border-primary/30 transition-all duration-300 glow-hover text-center">
+              <div key={service.abbr} className="group relative p-8 rounded-2xl bg-surface border border-surface-light hover:border-primary/30 transition-all duration-300 glow-hover text-center">
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mx-auto mb-6">
                   <span className="text-2xl font-bold gradient-text">{service.abbr}</span>
                 </div>
