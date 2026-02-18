@@ -68,30 +68,18 @@ export default function HeroSlider({ paused = false }: { paused?: boolean }) {
   const slideVariants = {
     enter: (dir: number) => ({
       x: dir > 0 ? "100%" : "-100%",
-      opacity: 0,
     }),
     center: {
-      x: 0,
-      opacity: 1,
+      x: "0%",
     },
     exit: (dir: number) => ({
       x: dir > 0 ? "-100%" : "100%",
-      opacity: 0,
-    }),
-  };
-
-  const textVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (delay: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, delay, ease: "easeOut" as const },
     }),
   };
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Slide Backgrounds */}
+      {/* Full Slide (Background + Content together) */}
       <AnimatePresence custom={direction} initial={false}>
         <motion.div
           key={current}
@@ -100,10 +88,10 @@ export default function HeroSlider({ paused = false }: { paused?: boolean }) {
           initial="enter"
           animate="center"
           exit="exit"
-          transition={{ duration: 0.8, ease: "easeInOut" }}
+          transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
           className="absolute inset-0"
         >
-          {/* Background - swap backgroundGradient for backgroundImage when you have real photos */}
+          {/* Background */}
           <div
             className="absolute inset-0"
             style={{
@@ -114,70 +102,69 @@ export default function HeroSlider({ paused = false }: { paused?: boolean }) {
           />
           {/* Dark overlay */}
           <div className="absolute inset-0 bg-black/40" />
+
+          {/* Slide Content */}
+          <div className="relative z-10 flex items-center justify-center h-full">
+            <div className="text-center px-4 max-w-4xl mx-auto">
+              {/* Subtitle */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="text-sm sm:text-base uppercase tracking-[0.3em] text-white/80 mb-4 font-medium"
+              >
+                {slides[current].subtitle}
+              </motion.p>
+
+              {/* Decorative line */}
+              <motion.div
+                initial={{ opacity: 0, scaleX: 0 }}
+                animate={{ opacity: 1, scaleX: 1 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="w-16 h-0.5 bg-gradient-to-r from-primary to-accent mx-auto mb-6"
+              />
+
+              {/* Title */}
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4"
+              >
+                {slides[current].title}{" "}
+                <span className="gradient-text">{slides[current].highlight}</span>
+              </motion.h1>
+
+              {/* CTA Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.7 }}
+              >
+                <Link
+                  href={slides[current].cta.href}
+                  className="inline-flex items-center px-8 py-4 mt-8 rounded-xl bg-gradient-to-r from-primary to-accent text-white font-semibold text-lg hover:opacity-90 transition-opacity shadow-lg shadow-primary/25"
+                >
+                  {slides[current].cta.label}
+                  <svg
+                    className="ml-2 w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </Link>
+              </motion.div>
+            </div>
+          </div>
         </motion.div>
       </AnimatePresence>
-
-      {/* Slide Content */}
-      <div className="relative z-10 flex items-center justify-center h-full">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={current}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            className="text-center px-4 max-w-4xl mx-auto"
-          >
-            {/* Subtitle */}
-            <motion.p
-              custom={0.1}
-              variants={textVariants}
-              className="text-sm sm:text-base uppercase tracking-[0.3em] text-white/80 mb-4 font-medium"
-            >
-              {slides[current].subtitle}
-            </motion.p>
-
-            {/* Decorative line */}
-            <motion.div
-              custom={0.2}
-              variants={textVariants}
-              className="w-16 h-0.5 bg-gradient-to-r from-primary to-accent mx-auto mb-6"
-            />
-
-            {/* Title */}
-            <motion.h1
-              custom={0.3}
-              variants={textVariants}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4"
-            >
-              {slides[current].title}{" "}
-              <span className="gradient-text">{slides[current].highlight}</span>
-            </motion.h1>
-
-            {/* CTA Button */}
-            <motion.div custom={0.5} variants={textVariants}>
-              <Link
-                href={slides[current].cta.href}
-                className="inline-flex items-center px-8 py-4 mt-8 rounded-xl bg-gradient-to-r from-primary to-accent text-white font-semibold text-lg hover:opacity-90 transition-opacity shadow-lg shadow-primary/25"
-              >
-                {slides[current].cta.label}
-                <svg
-                  className="ml-2 w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </Link>
-            </motion.div>
-          </motion.div>
-        </AnimatePresence>
-      </div>
 
       {/* Navigation Dots */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex gap-3">
