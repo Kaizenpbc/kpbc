@@ -11,7 +11,7 @@ export default function TawkToChat() {
   return (
     <Script
       id="tawk-to"
-      strategy="lazyOnload"
+      strategy="afterInteractive"
       src={`https://embed.tawk.to/${tawkPropertyId}/${tawkWidgetId}`}
       crossOrigin="anonymous"
     />
