@@ -155,7 +155,7 @@ export default function Home() {
                   Ready to Transform Your Business?
                 </h2>
                 <p className="text-white/80 max-w-2xl mx-auto mb-8 text-lg">
-                  Let&apos;s discuss how KPBC can help you achieve your technology goals and stay ahead of the competition.
+                  Let&apos;s discuss how Kaizen Project &amp; Business Consultants Inc. can help you achieve your technology goals and stay ahead of the competition.
                 </p>
                 <Link
                   href="/contact"

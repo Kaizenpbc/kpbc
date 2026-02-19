@@ -7,7 +7,7 @@ const team = [
   {
     name: "John Smith",
     role: "CEO & Co-Founder",
-    bio: "With over 15 years of experience in enterprise IT solutions, John leads KPBC's strategic vision and drives innovation across all service lines.",
+    bio: "With over 15 years of experience in enterprise IT solutions, John leads Kaizen Project & Business Consultants Inc.'s strategic vision and drives innovation across all service lines.",
     initials: "JS",
   },
   {
@@ -77,7 +77,7 @@ export default function AboutPage() {
               About <span className="gradient-text">Kaizen Project &amp; Business Consultants Inc.</span>
             </h1>
             <p className="text-lg sm:text-xl text-muted leading-relaxed">
-              We are a team of passionate technologists dedicated to helping businesses harness the power of technology. Since our founding, KPBC has been at the forefront of delivering innovative IT solutions that drive real results.
+              We are a team of passionate technologists dedicated to helping businesses harness the power of technology. Since our founding, Kaizen Project &amp; Business Consultants Inc. has been at the forefront of delivering innovative IT solutions that drive real results.
             </p>
           </motion.div>
         </div>
@@ -92,7 +92,7 @@ export default function AboutPage() {
                 Our <span className="gradient-text">Mission</span>
               </h2>
               <p className="text-muted leading-relaxed mb-6">
-                At KPBC, our mission is to empower organizations through transformative technology solutions. We believe that the right technology, implemented strategically, can unlock unprecedented growth and efficiency.
+                At Kaizen Project &amp; Business Consultants Inc., our mission is to empower organizations through transformative technology solutions. We believe that the right technology, implemented strategically, can unlock unprecedented growth and efficiency.
               </p>
               <p className="text-muted leading-relaxed">
                 From custom software development to comprehensive cybersecurity solutions, we partner with businesses of all sizes to navigate the complexities of digital transformation and emerge stronger, smarter, and more competitive.
@@ -125,7 +125,7 @@ export default function AboutPage() {
               Our <span className="gradient-text">Values</span>
             </h2>
             <p className="text-muted max-w-2xl mx-auto">
-              The principles that guide everything we do at KPBC.
+              The principles that guide everything we do at Kaizen Project &amp; Business Consultants Inc.
             </p>
           </AnimatedSection>
 
@@ -153,7 +153,7 @@ export default function AboutPage() {
               Meet the <span className="gradient-text">Team</span>
             </h2>
             <p className="text-muted max-w-2xl mx-auto">
-              The leadership behind KPBC&apos;s vision and innovation.
+              The leadership behind Kaizen Project &amp; Business Consultants Inc.&apos;s vision and innovation.
             </p>
           </AnimatedSection>
 
