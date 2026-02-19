@@ -83,7 +83,7 @@ export default function Home() {
                 {[...clients, ...clients, ...clients, ...clients].map((name, i) => (
                   <span
                     key={i}
-                    className="flex-shrink-0 px-10 text-lg font-semibold text-muted/40 hover:text-muted/70 transition-colors duration-300 select-none whitespace-nowrap"
+                    className="flex-shrink-0 px-10 text-lg font-semibold text-muted hover:text-heading transition-colors duration-300 select-none whitespace-nowrap"
                   >
                     {name}
                   </span>
