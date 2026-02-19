@@ -32,7 +32,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <Image src="/ninja-logo.svg" alt="KPBC Logo" width={40} height={40} />
+              <Image src="/kpbc-logo.svg" alt="KPBC Logo" width={40} height={40} />
               <span className="text-xl font-bold text-white">KPBC</span>
             </div>
             <p className="text-muted text-sm leading-relaxed">
