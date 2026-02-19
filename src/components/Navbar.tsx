@@ -177,8 +177,8 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <Image src="/ninja-logo.svg" alt="Kaizen Project & Business Consultants Inc. Logo" width={40} height={40} className="invert brightness-0 invert" />
-            <span className="text-xl font-bold text-white">Kaizen Project &amp; Business Consultants Inc.</span>
+            <Image src="/ninja-logo.svg" alt="KPBC Logo" width={40} height={40} className="invert brightness-0 invert" />
+            <span className="text-xl font-bold text-white">KPBC</span>
           </Link>
 
           {/* Desktop Nav */}
