@@ -32,14 +32,9 @@ const stats = [
 ];
 
 const clients = [
-  "Converge ICT",
-  "PhilHealth",
-  "Department of Education",
-  "Globe Telecom",
-  "BDO Unibank",
-  "Accenture",
-  "PLDT Enterprise",
-  "SM Investments",
+  "PICA — Jamaica",
+  "NWC — Jamaica",
+  "GTA CPR — Canada",
 ];
 
 export default function Home() {
@@ -85,7 +80,7 @@ export default function Home() {
             </p>
             <div className="marquee-fade overflow-hidden">
               <div className="marquee-track">
-                {[...clients, ...clients].map((name, i) => (
+                {[...clients, ...clients, ...clients, ...clients].map((name, i) => (
                   <span
                     key={i}
                     className="flex-shrink-0 px-10 text-lg font-semibold text-muted/40 hover:text-muted/70 transition-colors duration-300 select-none whitespace-nowrap"
