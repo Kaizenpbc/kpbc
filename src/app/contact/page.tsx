@@ -81,7 +81,7 @@ export default function ContactPage() {
             {/* Form */}
             <AnimatedSection className="lg:col-span-3">
               <div className="p-8 lg:p-10 rounded-2xl bg-background border border-surface-light">
-                <h2 className="text-2xl font-bold text-white mb-6">Send Us a Message</h2>
+                <h2 className="text-2xl font-bold text-heading mb-6">Send Us a Message</h2>
 
                 {status === "success" ? (
                   <div className="p-8 text-center">
@@ -90,7 +90,7 @@ export default function ContactPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-semibold text-white mb-2">Message Sent!</h3>
+                    <h3 className="text-xl font-semibold text-heading mb-2">Message Sent!</h3>
                     <p className="text-muted mb-6">Thank you for reaching out. We&apos;ll get back to you within 24 hours.</p>
                     {debugInfo && (
                       <pre className="mb-4 p-3 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 text-xs whitespace-pre-wrap break-all">{debugInfo}</pre>
@@ -115,7 +115,7 @@ export default function ContactPage() {
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl bg-surface border border-surface-light text-white placeholder-muted/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-colors"
+                          className="w-full px-4 py-3 rounded-xl bg-surface border border-surface-light text-heading placeholder-muted/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-colors"
                           placeholder="Your name"
                         />
                       </div>
@@ -129,7 +129,7 @@ export default function ContactPage() {
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl bg-surface border border-surface-light text-white placeholder-muted/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-colors"
+                          className="w-full px-4 py-3 rounded-xl bg-surface border border-surface-light text-heading placeholder-muted/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-colors"
                           placeholder="you@company.com"
                         />
                       </div>
@@ -145,7 +145,7 @@ export default function ContactPage() {
                           id="company"
                           value={formData.company}
                           onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl bg-surface border border-surface-light text-white placeholder-muted/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-colors"
+                          className="w-full px-4 py-3 rounded-xl bg-surface border border-surface-light text-heading placeholder-muted/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-colors"
                           placeholder="Your company"
                         />
                       </div>
@@ -157,7 +157,7 @@ export default function ContactPage() {
                           id="area"
                           value={formData.area}
                           onChange={(e) => setFormData({ ...formData, area: e.target.value, service: "" })}
-                          className="w-full px-4 py-3 rounded-xl bg-surface border border-surface-light text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-colors"
+                          className="w-full px-4 py-3 rounded-xl bg-surface border border-surface-light text-heading focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-colors"
                         >
                           <option value="">Select an area</option>
                           <option value="services">Services</option>
@@ -176,7 +176,7 @@ export default function ContactPage() {
                           id="service"
                           value={formData.service}
                           onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl bg-surface border border-surface-light text-white focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-colors"
+                          className="w-full px-4 py-3 rounded-xl bg-surface border border-surface-light text-heading focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-colors"
                         >
                           {formData.area === "services" ? (
                             <>
@@ -213,7 +213,7 @@ export default function ContactPage() {
                         rows={5}
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-surface border border-surface-light text-white placeholder-muted/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-colors resize-none"
+                        className="w-full px-4 py-3 rounded-xl bg-surface border border-surface-light text-heading placeholder-muted/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-colors resize-none"
                         placeholder="Tell us about your project or question..."
                       />
                     </div>
@@ -261,7 +261,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-white font-semibold mb-1">Email Us</h3>
+                      <h3 className="text-heading font-semibold mb-1">Email Us</h3>
                       <p className="text-muted text-sm">sales@kpbc.com</p>
                     </div>
                   </div>
@@ -276,7 +276,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-white font-semibold mb-1">Call Us</h3>
+                      <h3 className="text-heading font-semibold mb-1">Call Us</h3>
                       <p className="text-muted text-sm">+1 (416) 723-2571</p>
                     </div>
                   </div>
@@ -292,7 +292,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-white font-semibold mb-1">Visit Us</h3>
+                      <h3 className="text-heading font-semibold mb-1">Visit Us</h3>
                       <p className="text-muted text-sm">Toronto, Ontario, Canada</p>
                     </div>
                   </div>
@@ -307,7 +307,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-white font-semibold mb-1">Business Hours</h3>
+                      <h3 className="text-heading font-semibold mb-1">Business Hours</h3>
                       <p className="text-muted text-sm">Monday - Friday: 9AM - 6PM EST<br />Weekend: By appointment</p>
                     </div>
                   </div>

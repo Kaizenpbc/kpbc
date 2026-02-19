@@ -119,7 +119,7 @@ export default function ProductsPage() {
                             <span className="text-xl font-bold text-white">{product.abbr}</span>
                           </div>
                           <div>
-                            <h2 className="text-2xl font-bold text-white">{product.name}</h2>
+                            <h2 className="text-2xl font-bold text-heading">{product.name}</h2>
                             <p className="text-muted text-sm">{product.tagline}</p>
                           </div>
                         </div>
@@ -128,7 +128,7 @@ export default function ProductsPage() {
 
                       {/* Right - Features */}
                       <div className="lg:w-80 flex-shrink-0">
-                        <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Key Features</h3>
+                        <h3 className="text-sm font-semibold text-heading uppercase tracking-wider mb-4">Key Features</h3>
                         <div className="space-y-3">
                           {product.features.map((feature) => (
                             <div key={feature} className="flex items-center text-sm text-muted">
@@ -165,7 +165,7 @@ export default function ProductsPage() {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-heading mb-4">
               Interested in Our Products?
             </h2>
             <p className="text-muted max-w-2xl mx-auto mb-8">

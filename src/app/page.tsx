@@ -98,7 +98,7 @@ export default function Home() {
       <section ref={servicesRef} className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-heading mb-4">
               Our <span className="gradient-text">Services</span>
             </h2>
             <p className="text-muted max-w-2xl mx-auto">
@@ -112,7 +112,7 @@ export default function Home() {
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mx-auto mb-6">
                   <span className="text-2xl font-bold gradient-text">{service.abbr}</span>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{service.name}</h3>
+                <h3 className="text-lg font-semibold text-heading mb-2">{service.name}</h3>
                 <p className="text-muted text-sm">{service.description}</p>
               </div>
             ))}
@@ -136,7 +136,7 @@ export default function Home() {
       <section className="py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-heading mb-4">
               Our <span className="gradient-text">Products</span>
             </h2>
             <p className="text-muted max-w-2xl mx-auto">
@@ -151,7 +151,7 @@ export default function Home() {
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mx-auto mb-6">
                     <span className="text-2xl font-bold gradient-text">{product.abbr}</span>
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{product.name}</h3>
+                  <h3 className="text-lg font-semibold text-heading mb-2">{product.name}</h3>
                   <p className="text-muted text-sm">{product.description}</p>
                 </div>
               </AnimatedSection>

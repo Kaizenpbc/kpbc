@@ -133,7 +133,7 @@ export default function ServicesPage() {
                       <span className="text-xl font-bold text-white">{service.abbr}</span>
                     </div>
                     <div>
-                      <h2 className="text-xl font-bold text-white">{service.title}</h2>
+                      <h2 className="text-xl font-bold text-heading">{service.title}</h2>
                       <p className="text-muted text-sm">{service.tagline}</p>
                     </div>
                   </div>
@@ -141,7 +141,7 @@ export default function ServicesPage() {
                   <p className="text-muted leading-relaxed text-sm mt-2">{service.description}</p>
 
                   <div className="mt-6">
-                    <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-3">Key Features</h3>
+                    <h3 className="text-sm font-semibold text-heading uppercase tracking-wider mb-3">Key Features</h3>
                     <div className="space-y-2">
                       {service.features.map((feature) => (
                         <div key={feature} className="flex items-center text-sm text-muted">
@@ -176,7 +176,7 @@ export default function ServicesPage() {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-heading mb-4">
               Need a Custom Solution?
             </h2>
             <p className="text-muted max-w-2xl mx-auto mb-8">

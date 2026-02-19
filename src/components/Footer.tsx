@@ -33,7 +33,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <Image src="/kpbc-logo.svg" alt="KPBC Logo" width={40} height={40} />
-              <span className="text-xl font-bold text-white">KPBC</span>
+              <span className="text-xl font-bold text-heading">KPBC</span>
             </div>
             <p className="text-muted text-sm leading-relaxed">
               Delivering innovative IT solutions that drive business growth and digital transformation.
@@ -43,7 +43,7 @@ export default function Footer() {
           {/* Link Groups */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h3 className="text-white font-semibold mb-4">{title}</h3>
+              <h3 className="text-heading font-semibold mb-4">{title}</h3>
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link.href}>
