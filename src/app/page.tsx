@@ -31,6 +31,12 @@ const stats = [
   { value: "25+", label: "Years Experience" },
 ];
 
+const clients = [
+  "PICA — Jamaica",
+  "NWC — Jamaica",
+  "GTA CPR — Canada",
+];
+
 export default function Home() {
   const servicesRef = useRef<HTMLElement>(null);
   const [servicesVisible, setServicesVisible] = useState(false);
@@ -62,6 +68,29 @@ export default function Home() {
               </AnimatedSection>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Clients Section */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection>
+            <p className="text-center text-xs font-medium tracking-[0.3em] uppercase text-muted mb-10">
+              Trusted by industry leaders
+            </p>
+            <div className="marquee-fade overflow-hidden">
+              <div className="marquee-track">
+                {[...clients, ...clients, ...clients, ...clients].map((name, i) => (
+                  <span
+                    key={i}
+                    className="flex-shrink-0 px-10 text-lg font-semibold text-muted/40 hover:text-muted/70 transition-colors duration-300 select-none whitespace-nowrap"
+                  >
+                    {name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
