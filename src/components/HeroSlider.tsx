@@ -64,7 +64,7 @@ export default function HeroSlider({ paused = false }: { paused?: boolean }) {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className="relative h-full"
+            className="relative h-full flex-shrink-0"
             style={{ width: `${100 / slides.length}%` }}
           >
             {/* Background */}
