@@ -262,7 +262,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="text-white font-semibold mb-1">Email Us</h3>
-                      <p className="text-muted text-sm">contact@kpbc.com</p>
+                      <p className="text-muted text-sm">sales@kpbc.com</p>
                     </div>
                   </div>
                 </div>
@@ -277,7 +277,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="text-white font-semibold mb-1">Call Us</h3>
-                      <p className="text-muted text-sm">+1 (555) 123-4567</p>
+                      <p className="text-muted text-sm">+1 (416) 723-2571</p>
                     </div>
                   </div>
                 </div>
@@ -293,7 +293,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="text-white font-semibold mb-1">Visit Us</h3>
-                      <p className="text-muted text-sm">123 Innovation Drive<br />Tech District, City 10001</p>
+                      <p className="text-muted text-sm">Toronto, Ontario, Canada</p>
                     </div>
                   </div>
                 </div>
@@ -308,7 +308,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="text-white font-semibold mb-1">Business Hours</h3>
-                      <p className="text-muted text-sm">Monday - Friday: 9AM - 6PM<br />Weekend: By appointment</p>
+                      <p className="text-muted text-sm">Monday - Friday: 9AM - 6PM EST<br />Weekend: By appointment</p>
                     </div>
                   </div>
                 </div>
