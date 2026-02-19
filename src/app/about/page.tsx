@@ -88,7 +88,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-heading mb-6">
                 Our <span className="gradient-text">Mission</span>
               </h2>
               <p className="text-muted leading-relaxed mb-6">
@@ -121,7 +121,7 @@ export default function AboutPage() {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-heading mb-4">
               Our <span className="gradient-text">Values</span>
             </h2>
             <p className="text-muted max-w-2xl mx-auto">
@@ -136,7 +136,7 @@ export default function AboutPage() {
                   <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4">
                     {value.icon}
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{value.title}</h3>
+                  <h3 className="text-lg font-semibold text-heading mb-2">{value.title}</h3>
                   <p className="text-muted text-sm leading-relaxed">{value.description}</p>
                 </div>
               </AnimatedSection>
@@ -149,7 +149,7 @@ export default function AboutPage() {
       <section className="py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-heading mb-4">
               Meet the <span className="gradient-text">Team</span>
             </h2>
             <p className="text-muted max-w-2xl mx-auto">
@@ -164,7 +164,7 @@ export default function AboutPage() {
                   <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center mx-auto mb-6">
                     <span className="text-3xl font-bold text-white">{member.initials}</span>
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-1">{member.name}</h3>
+                  <h3 className="text-xl font-semibold text-heading mb-1">{member.name}</h3>
                   <p className="text-primary text-sm font-medium mb-4">{member.role}</p>
                   <p className="text-muted text-sm leading-relaxed">{member.bio}</p>
                   <div className="flex justify-center space-x-3 mt-6">

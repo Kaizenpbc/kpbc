@@ -11,8 +11,20 @@
   --color-surface: #111827;
   --color-surface-light: #1e293b;
   --color-muted: #94a3b8;
+  --color-heading: #ffffff;
   --font-sans: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: "Fira Code", "Cascadia Code", Consolas, monospace;
+}
+
+/* Light mode overrides */
+html.light {
+  --color-background: #ffffff;
+  --color-foreground: #1e293b;
+  --color-secondary: #f1f5f9;
+  --color-surface: #f8fafc;
+  --color-surface-light: #e2e8f0;
+  --color-muted: #64748b;
+  --color-heading: #0f172a;
 }
 
 body {
@@ -49,6 +61,10 @@ html {
   border: 1px solid rgba(59, 130, 246, 0.1);
 }
 
+html.light .glass {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(0, 0, 0, 0.08);
+}
 
 /* Animated gradient border */
 .gradient-border {

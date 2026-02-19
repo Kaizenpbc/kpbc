@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "./ThemeProvider";
 
 const serviceItems = [
   { href: "/services#software-development", abbr: "SD", label: "Software Development" },
@@ -61,7 +62,7 @@ function DesktopDropdown({
       onMouseLeave={handleLeave}
     >
       <button
-        className="px-4 py-2 rounded-lg text-sm font-medium text-muted hover:text-white hover:bg-surface-light transition-all duration-200 flex items-center gap-1"
+        className="px-4 py-2 rounded-lg text-sm font-medium text-muted hover:text-heading hover:bg-surface-light transition-all duration-200 flex items-center gap-1"
         onClick={() => setOpen((v) => !v)}
       >
         {label}
@@ -91,8 +92,8 @@ function DesktopDropdown({
                   href={item.href}
                   className={
                     wide
-                      ? "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-muted hover:text-white hover:bg-surface-light transition-colors"
-                      : "block px-4 py-2.5 text-sm text-muted hover:text-white hover:bg-surface-light transition-colors"
+                      ? "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-muted hover:text-heading hover:bg-surface-light transition-colors"
+                      : "block px-4 py-2.5 text-sm text-muted hover:text-heading hover:bg-surface-light transition-colors"
                   }
                   onClick={() => setOpen(false)}
                 >
@@ -124,7 +125,7 @@ function MobileDropdown({
   return (
     <div>
       <button
-        className="w-full flex items-center justify-between px-4 py-2 rounded-lg text-muted hover:text-white hover:bg-surface-light transition-colors"
+        className="w-full flex items-center justify-between px-4 py-2 rounded-lg text-muted hover:text-heading hover:bg-surface-light transition-colors"
         onClick={() => setOpen((v) => !v)}
       >
         <span>{label}</span>
@@ -151,7 +152,7 @@ function MobileDropdown({
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="flex items-center gap-3 px-4 py-2 rounded-lg text-sm text-muted hover:text-white hover:bg-surface-light transition-colors"
+                  className="flex items-center gap-3 px-4 py-2 rounded-lg text-sm text-muted hover:text-heading hover:bg-surface-light transition-colors"
                   onClick={onNavigate}
                 >
                   {item.abbr && (
@@ -170,6 +171,7 @@ function MobileDropdown({
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass">
@@ -178,20 +180,20 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <Image src="/kpbc-logo.svg" alt="KPBC Logo" width={40} height={40} />
-            <span className="text-xl font-bold text-white">KPBC</span>
+            <span className="text-xl font-bold text-heading">KPBC</span>
           </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-1">
             <Link
               href="/"
-              className="px-4 py-2 rounded-lg text-sm font-medium text-muted hover:text-white hover:bg-surface-light transition-all duration-200"
+              className="px-4 py-2 rounded-lg text-sm font-medium text-muted hover:text-heading hover:bg-surface-light transition-all duration-200"
             >
               Home
             </Link>
             <Link
               href="/about"
-              className="px-4 py-2 rounded-lg text-sm font-medium text-muted hover:text-white hover:bg-surface-light transition-all duration-200"
+              className="px-4 py-2 rounded-lg text-sm font-medium text-muted hover:text-heading hover:bg-surface-light transition-all duration-200"
             >
               About
             </Link>
@@ -199,13 +201,28 @@ export default function Navbar() {
             <DesktopDropdown label="Products" items={productItems} />
             <Link
               href="/contact"
-              className="px-4 py-2 rounded-lg text-sm font-medium text-muted hover:text-white hover:bg-surface-light transition-all duration-200"
+              className="px-4 py-2 rounded-lg text-sm font-medium text-muted hover:text-heading hover:bg-surface-light transition-all duration-200"
             >
               Contact
             </Link>
+            <button
+              onClick={toggleTheme}
+              className="ml-2 p-2 rounded-lg text-muted hover:text-heading hover:bg-surface-light transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? (
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+              )}
+            </button>
             <Link
               href="/contact"
-              className="ml-4 px-5 py-2 rounded-lg bg-gradient-to-r from-primary to-accent text-white text-sm font-semibold hover:opacity-90 transition-opacity"
+              className="ml-2 px-5 py-2 rounded-lg bg-gradient-to-r from-primary to-accent text-white text-sm font-semibold hover:opacity-90 transition-opacity"
             >
               Get Started
             </Link>
@@ -213,7 +230,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg text-muted hover:text-white hover:bg-surface-light transition-colors"
+            className="md:hidden p-2 rounded-lg text-muted hover:text-heading hover:bg-surface-light transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -240,14 +257,14 @@ export default function Navbar() {
             <div className="px-4 py-4 space-y-2">
               <Link
                 href="/"
-                className="block px-4 py-2 rounded-lg text-muted hover:text-white hover:bg-surface-light transition-colors"
+                className="block px-4 py-2 rounded-lg text-muted hover:text-heading hover:bg-surface-light transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 Home
               </Link>
               <Link
                 href="/about"
-                className="block px-4 py-2 rounded-lg text-muted hover:text-white hover:bg-surface-light transition-colors"
+                className="block px-4 py-2 rounded-lg text-muted hover:text-heading hover:bg-surface-light transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 About
@@ -256,11 +273,26 @@ export default function Navbar() {
               <MobileDropdown label="Products" items={productItems} onNavigate={() => setIsOpen(false)} />
               <Link
                 href="/contact"
-                className="block px-4 py-2 rounded-lg text-muted hover:text-white hover:bg-surface-light transition-colors"
+                className="block px-4 py-2 rounded-lg text-muted hover:text-heading hover:bg-surface-light transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 Contact
               </Link>
+              <button
+                onClick={toggleTheme}
+                className="w-full flex items-center gap-3 px-4 py-2 rounded-lg text-muted hover:text-heading hover:bg-surface-light transition-colors"
+              >
+                {theme === "dark" ? (
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                ) : (
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                  </svg>
+                )}
+                <span>{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
+              </button>
               <Link
                 href="/contact"
                 className="block px-4 py-3 rounded-lg bg-gradient-to-r from-primary to-accent text-white text-center font-semibold"
