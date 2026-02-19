@@ -5,16 +5,16 @@ import AnimatedSection from "@/components/AnimatedSection";
 
 const team = [
   {
-    name: "John Smith",
+    name: "Michael Annamunthodo",
     role: "CEO & Co-Founder",
-    bio: "With over 15 years of experience in enterprise IT solutions, John leads Kaizen Project & Business Consultants Inc.'s strategic vision and drives innovation across all service lines.",
-    initials: "JS",
+    bio: "With over 15 years of experience in enterprise IT solutions, Michael leads Kaizen Project & Business Consultants Inc.'s strategic vision and drives innovation across all service lines.",
+    initials: "MA",
   },
   {
-    name: "Sarah Johnson",
+    name: "Akil Annamunthodo",
     role: "CTO & Co-Founder",
     bio: "A seasoned technology leader with deep expertise in software architecture, cybersecurity, and digital transformation strategies.",
-    initials: "SJ",
+    initials: "AA",
   },
 ];
 
