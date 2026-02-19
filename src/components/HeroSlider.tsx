@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 
 interface Slide {
@@ -42,12 +42,60 @@ const slides: Slide[] = [
 const AUTOPLAY_INTERVAL = 6000;
 
 export default function HeroSlider({ paused = false }: { paused?: boolean }) {
-  const [current, setCurrent] = useState(0);
+  const totalSlides = slides.length;
+  // Extended slides: [clone of last, ...real slides, clone of first]
+  const extendedSlides = [slides[totalSlides - 1], ...slides, slides[0]];
+  const extLen = extendedSlides.length;
+
+  const [pos, setPos] = useState(1); // Start at first real slide (index 1 in extended array)
+  const [animate, setAnimate] = useState(true);
+  const isJumping = useRef(false);
+
+  // Map position to real slide index (0-based) for the dots
+  const realIndex = pos <= 0 ? totalSlides - 1 : pos > totalSlides ? 0 : pos - 1;
 
   const nextSlide = useCallback(() => {
-    setCurrent((prev) => (prev + 1) % slides.length);
+    setAnimate(true);
+    setPos((prev) => prev + 1);
   }, []);
 
+  const prevSlide = useCallback(() => {
+    setAnimate(true);
+    setPos((prev) => prev - 1);
+  }, []);
+
+  const goToSlide = useCallback((index: number) => {
+    setAnimate(true);
+    setPos(index + 1);
+  }, []);
+
+  // After transitioning to a clone, instantly jump to the real slide (no animation)
+  const handleTransitionEnd = useCallback(() => {
+    if (pos > totalSlides) {
+      isJumping.current = true;
+      setAnimate(false);
+      setPos(1);
+    } else if (pos <= 0) {
+      isJumping.current = true;
+      setAnimate(false);
+      setPos(totalSlides);
+    }
+  }, [pos, totalSlides]);
+
+  // Re-enable animation after the instant jump repaints
+  useEffect(() => {
+    if (!animate && isJumping.current) {
+      const frame = requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setAnimate(true);
+          isJumping.current = false;
+        });
+      });
+      return () => cancelAnimationFrame(frame);
+    }
+  }, [animate]);
+
+  // Autoplay
   useEffect(() => {
     if (paused) return;
     const timer = setInterval(nextSlide, AUTOPLAY_INTERVAL);
@@ -58,14 +106,18 @@ export default function HeroSlider({ paused = false }: { paused?: boolean }) {
     <section className="relative h-screen w-full overflow-hidden">
       {/* Horizontal slide track */}
       <div
-        className="flex h-full transition-transform duration-700 ease-in-out"
-        style={{ width: `${slides.length * 100}%`, transform: `translateX(-${current * (100 / slides.length)}%)` }}
+        className={`flex h-full ${animate ? "transition-transform duration-700 ease-in-out" : ""}`}
+        style={{
+          width: `${extLen * 100}%`,
+          transform: `translateX(-${pos * (100 / extLen)}%)`,
+        }}
+        onTransitionEnd={handleTransitionEnd}
       >
-        {slides.map((slide, index) => (
+        {extendedSlides.map((slide, index) => (
           <div
             key={index}
             className="relative h-full flex-shrink-0"
-            style={{ width: `${100 / slides.length}%` }}
+            style={{ width: `${100 / extLen}%` }}
           >
             {/* Background */}
             <div
@@ -129,18 +181,18 @@ export default function HeroSlider({ paused = false }: { paused?: boolean }) {
         {slides.map((_, index) => (
           <button
             key={index}
-            onClick={() => setCurrent(index)}
+            onClick={() => goToSlide(index)}
             aria-label={`Go to slide ${index + 1}`}
             className="group relative w-3 h-3 rounded-full transition-all duration-300"
           >
             <span
               className={`block w-full h-full rounded-full transition-all duration-300 ${
-                index === current
+                index === realIndex
                   ? "bg-white scale-100"
                   : "bg-white/40 scale-75 group-hover:bg-white/70 group-hover:scale-90"
               }`}
             />
-            {index === current && (
+            {index === realIndex && (
               <span className="absolute inset-[-3px] rounded-full border-2 border-white/60" />
             )}
           </button>
@@ -149,7 +201,7 @@ export default function HeroSlider({ paused = false }: { paused?: boolean }) {
 
       {/* Left/Right Arrows */}
       <button
-        onClick={() => setCurrent((prev) => (prev - 1 + slides.length) % slides.length)}
+        onClick={prevSlide}
         aria-label="Previous slide"
         className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
       >
@@ -158,7 +210,7 @@ export default function HeroSlider({ paused = false }: { paused?: boolean }) {
         </svg>
       </button>
       <button
-        onClick={() => setCurrent((prev) => (prev + 1) % slides.length)}
+        onClick={nextSlide}
         aria-label="Next slide"
         className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
       >
