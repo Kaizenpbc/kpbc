@@ -4,9 +4,9 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "KPBC | Innovative IT Solutions",
+  title: "Kaizen Project & Business Consultants Inc. | Innovative IT Solutions",
   description:
-    "KPBC delivers cutting-edge IT solutions including software development, cybersecurity, digital transformation, and enterprise products to drive your business forward.",
+    "Kaizen Project & Business Consultants Inc. delivers cutting-edge IT solutions including software development, cybersecurity, digital transformation, and enterprise products to drive your business forward.",
 };
 
 export default function RootLayout({

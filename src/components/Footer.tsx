@@ -32,8 +32,8 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <Image src="/ninja-logo.svg" alt="KPBC Logo" width={40} height={40} className="invert brightness-0 invert" />
-              <span className="text-xl font-bold text-white">KPBC</span>
+              <Image src="/ninja-logo.svg" alt="Kaizen Project & Business Consultants Inc. Logo" width={40} height={40} className="invert brightness-0 invert" />
+              <span className="text-xl font-bold text-white">Kaizen Project &amp; Business Consultants Inc.</span>
             </div>
             <p className="text-muted text-sm leading-relaxed">
               Delivering innovative IT solutions that drive business growth and digital transformation.
@@ -63,7 +63,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="mt-12 pt-8 border-t border-surface-light flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-muted text-sm">
-            &copy; {new Date().getFullYear()} KPBC. All rights reserved.
+            &copy; {new Date().getFullYear()} Kaizen Project &amp; Business Consultants Inc. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <a href="#" className="text-muted hover:text-primary transition-colors" aria-label="LinkedIn">
