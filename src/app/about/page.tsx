@@ -11,10 +11,10 @@ const team = [
     initials: "MA",
   },
   {
-    name: "Sarah Johnson",
+    name: "Akil Annamunthodo",
     role: "CTO & Co-Founder",
     bio: "A seasoned technology leader with deep expertise in software architecture, cybersecurity, and digital transformation strategies.",
-    initials: "SJ",
+    initials: "AA",
   },
 ];
 
