@@ -8,7 +8,7 @@ const products = [
   {
     id: "ecm",
     abbr: "ECM",
-    name: "Enterprise Content Management",
+    name: "ECM \u2014 FineDocs\u2122",
     tagline: "Capture. Manage. Deliver.",
     description: "A comprehensive enterprise content management platform that helps organizations capture, manage, store, and deliver content and documents related to organizational processes. Powered by Acyutah Technologies' FineDocs platform, our ECM solution streamlines document workflows and ensures compliance with built-in version control, records management, and access controls.",
     features: [
@@ -25,9 +25,9 @@ const products = [
   {
     id: "bpm",
     abbr: "BPM",
-    name: "Business Process Management",
+    name: "BPM \u2014 FineFlow\u2122",
     tagline: "Automate. Optimize. Transform.",
-    description: "A powerful business process management solution that enables organizations to design, automate, and optimize their workflows. Streamline approvals, reduce manual tasks, and gain full visibility into your business processes with real-time tracking and analytics.",
+    description: "A powerful business process management solution powered by Acyutah Technologies\u2019 FineFlow\u2122 platform. Design, automate, and optimize your workflows with an intuitive visual process designer. Streamline approvals, reduce manual tasks, and gain full visibility into your business processes with real-time tracking and analytics.",
     features: [
       "Visual Workflow Designer",
       "Automated Approval Routing",
@@ -174,6 +174,57 @@ const products = [
     ],
     gradient: "from-teal-500 to-cyan-500",
     demoLink: "/products/phone",
+  },
+  {
+    id: "cbs",
+    abbr: "CBS",
+    name: "Core Banking Software \u2014 TrustBankCBS\u2122",
+    tagline: "Secure. Scalable. Unified.",
+    description: "A secure and robust core banking solution by Trust Fintech Limited for financial institutions and banks. TrustBankCBS\u2122 is a web-based platform available on-premises or as SaaS, providing integrated banking modules on a unified system with API-driven architecture, multi-currency support, and built-in compliance capabilities.",
+    features: [
+      "Retail & Corporate Banking",
+      "Multi-Currency & Multi-Lingual",
+      "KYC, AML & Compliance Automation",
+      "360\u00B0 Customer View (CIF/KYC)",
+      "Treasury & Trade Finance",
+      "Digital Banking & Payment Integration",
+    ],
+    gradient: "from-slate-500 to-zinc-600",
+    demoLink: "/products/cbs",
+  },
+  {
+    id: "los",
+    abbr: "LOS",
+    name: "Loan Origination Software \u2014 TrustLOS\u2122",
+    tagline: "Apply. Approve. Disburse.",
+    description: "A web- and mobile-based loan origination system by Trust Fintech Limited that streamlines lending operations end-to-end. TrustLOS\u2122 automates credit appraisal workflows, reduces turnaround time by up to 50%, and provides 24/7 online access for loan applications, status tracking, and document management.",
+    features: [
+      "Pre-Configured Loan Workflows",
+      "Credit Scoring & Eligibility Engine",
+      "KYC & Credit Bureau Integration",
+      "Document Management System",
+      "Mobile Access for Applicants",
+      "Core Banking System Integration",
+    ],
+    gradient: "from-yellow-600 to-amber-500",
+    demoLink: "/products/los",
+  },
+  {
+    id: "ai-resume",
+    abbr: "AI",
+    name: "AI Resume Writing",
+    tagline: "Craft. Optimize. Land the Job.",
+    description: "An intelligent resume preparation platform that leverages advanced AI to help job seekers create polished, ATS-optimized resumes tailored to specific roles and industries. From formatting and keyword optimization to personalized content suggestions, our AI engine transforms your experience into a compelling career narrative that gets noticed.",
+    features: [
+      "AI-Powered Resume Builder",
+      "ATS Optimization & Scoring",
+      "Industry-Specific Tailoring",
+      "Keyword & Skills Analysis",
+      "Cover Letter Generation",
+      "Multi-Format Export (PDF, DOCX)",
+    ],
+    gradient: "from-amber-500 to-orange-500",
+    demoLink: "/products/ai-resume",
   },
 ];
 
