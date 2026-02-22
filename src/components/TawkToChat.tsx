@@ -9,11 +9,25 @@ export default function TawkToChat() {
   if (!tawkPropertyId) return null;
 
   return (
-    <Script
-      id="tawk-to"
-      strategy="afterInteractive"
-      src={`https://embed.tawk.to/${tawkPropertyId}/${tawkWidgetId}`}
-      crossOrigin="anonymous"
-    />
+    <>
+      <Script
+        id="tawk-to-init"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            var Tawk_API = Tawk_API || {};
+            Tawk_API.onLoad = function() {
+              Tawk_API.minimize();
+            };
+          `,
+        }}
+      />
+      <Script
+        id="tawk-to"
+        strategy="afterInteractive"
+        src={`https://embed.tawk.to/${tawkPropertyId}/${tawkWidgetId}`}
+        crossOrigin="anonymous"
+      />
+    </>
   );
 }

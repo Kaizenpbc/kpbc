@@ -14,7 +14,7 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    subtitle: "Solutions Beyond Borders",
+    subtitle: "Where Experience Meets Execution",
     title: "Welcome to",
     highlight: "Kaizen",
     cta: { label: "Our Services", href: "/services" },
