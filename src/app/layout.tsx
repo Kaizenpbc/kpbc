@@ -40,8 +40,17 @@ export const metadata: Metadata = {
     description:
       "Enterprise IT solutions including ECM, BPM, Core Banking, Loan Origination, CRM, ITSM, and AI Resume Writing services across Canada.",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kaizen Project & Business Consultants Inc. | IT Solutions & Enterprise Software",
+    description:
+      "Enterprise IT solutions including ECM, BPM, Core Banking, Loan Origination, CRM, ITSM, and AI Resume Writing services across Canada.",
+  },
   alternates: {
     canonical: "https://kpbc.ca",
+  },
+  verification: {
+    google: "google3dd9688ad43ac813",
   },
 };
 
