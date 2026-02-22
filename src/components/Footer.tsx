@@ -20,8 +20,13 @@ const footerLinks = {
     { href: "/products#ecm", label: "ECM" },
     { href: "/products#bpm", label: "BPM" },
     { href: "/products#lms", label: "LMS" },
-    { href: "/products#crm", label: "CRM" },
+    { href: "/products#crm", label: "CRM (Freshsales)" },
     { href: "/products#sis", label: "SIS" },
+    { href: "/products#itsm", label: "ITSM (Freshservice)" },
+    { href: "/products#csm", label: "CSM (Freshdesk)" },
+    { href: "/products#ma", label: "Marketing (Freshmarketer)" },
+    { href: "/products#chat", label: "Chat (Freshchat)" },
+    { href: "/products#phone", label: "Phone (Freshcaller)" },
   ],
 };
 
