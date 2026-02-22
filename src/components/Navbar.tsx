@@ -22,8 +22,13 @@ const productItems = [
   { href: "/products#ecm", label: "Enterprise Content Management" },
   { href: "/products#bpm", label: "Business Process Management" },
   { href: "/products#lms", label: "Learning Management System" },
-  { href: "/products#crm", label: "Customer Relationship Management" },
+  { href: "/products#crm", label: "CRM (Freshsales)" },
   { href: "/products#sis", label: "Student Information System" },
+  { href: "/products#itsm", label: "ITSM (Freshservice)" },
+  { href: "/products#csm", label: "Customer Service (Freshdesk)" },
+  { href: "/products#ma", label: "Marketing (Freshmarketer)" },
+  { href: "/products#chat", label: "Live Chat (Freshchat)" },
+  { href: "/products#phone", label: "Cloud Phone (Freshcaller)" },
 ];
 
 
@@ -199,7 +204,7 @@ export default function Navbar() {
               About
             </Link>
             <DesktopDropdown label="Services" items={serviceItems} wide />
-            <DesktopDropdown label="Products" items={productItems} />
+            <DesktopDropdown label="Products" items={productItems} wide />
             <Link
               href="/contact"
               className="px-4 py-2 rounded-lg text-sm font-medium text-muted hover:text-heading hover:bg-surface-light transition-all duration-200"

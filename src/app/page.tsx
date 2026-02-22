@@ -21,8 +21,13 @@ const products = [
   { abbr: "ECM", name: "Enterprise Content Management", description: "Capture, manage, store, and deliver content across your organization." },
   { abbr: "BPM", name: "Business Process Management", description: "Automate and optimize workflows for maximum operational efficiency." },
   { abbr: "LMS", name: "Learning Management System", description: "Deliver and track training programs seamlessly." },
-  { abbr: "CRM", name: "Customer Relationship Management", description: "Manage customer interactions and grow revenue." },
+  { abbr: "CRM", name: "Customer Relationship Management", description: "AI-powered CRM built on Freshsales to manage interactions and grow revenue." },
   { abbr: "SIS", name: "Student Information System", description: "Streamline student data and academic processes." },
+  { abbr: "ITSM", name: "IT Service Management", description: "ITIL-aligned IT service management powered by Freshservice." },
+  { abbr: "CSM", name: "Customer Service Management", description: "Omnichannel customer support powered by Freshdesk." },
+  { abbr: "MA", name: "Marketing Automation", description: "Data-driven marketing campaigns powered by Freshmarketer." },
+  { abbr: "FC", name: "Live Chat & Messaging", description: "Real-time conversational engagement powered by Freshchat." },
+  { abbr: "FP", name: "Cloud Phone System", description: "Modern cloud phone system powered by Freshcaller." },
 ];
 
 const stats = [
@@ -145,7 +150,7 @@ export default function Home() {
             </p>
           </AnimatedSection>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {products.map((product, i) => (
               <AnimatedSection key={product.abbr} delay={i * 0.1}>
                 <div className="group relative p-8 rounded-2xl bg-background border border-surface-light hover:border-primary/30 transition-all duration-300 glow-hover text-center h-full">
