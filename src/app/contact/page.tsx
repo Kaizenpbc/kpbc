@@ -178,7 +178,8 @@ export default function ContactPage() {
                           ) : (
                             <>
                               <option value="">Select a product</option>
-                              <option value="dms">Document Management System</option>
+                              <option value="ecm">Enterprise Content Management</option>
+                              <option value="bpm">Business Process Management</option>
                               <option value="lms">Learning Management System</option>
                               <option value="crm">Customer Relationship Management</option>
                               <option value="sis">Student Information System</option>

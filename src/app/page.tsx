@@ -18,7 +18,8 @@ const services = [
 ];
 
 const products = [
-  { abbr: "DMS", name: "Document Management System", description: "Organize, store, and retrieve documents with ease." },
+  { abbr: "ECM", name: "Enterprise Content Management", description: "Capture, manage, store, and deliver content across your organization." },
+  { abbr: "BPM", name: "Business Process Management", description: "Automate and optimize workflows for maximum operational efficiency." },
   { abbr: "LMS", name: "Learning Management System", description: "Deliver and track training programs seamlessly." },
   { abbr: "CRM", name: "Customer Relationship Management", description: "Manage customer interactions and grow revenue." },
   { abbr: "SIS", name: "Student Information System", description: "Streamline student data and academic processes." },
@@ -144,7 +145,7 @@ export default function Home() {
             </p>
           </AnimatedSection>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {products.map((product, i) => (
               <AnimatedSection key={product.abbr} delay={i * 0.1}>
                 <div className="group relative p-8 rounded-2xl bg-background border border-surface-light hover:border-primary/30 transition-all duration-300 glow-hover text-center h-full">

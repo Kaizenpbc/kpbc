@@ -17,7 +17,8 @@ const footerLinks = {
     { href: "/services#staff-augmentation", label: "Staff Augmentation" },
   ],
   Products: [
-    { href: "/products#dms", label: "DMS" },
+    { href: "/products#ecm", label: "ECM" },
+    { href: "/products#bpm", label: "BPM" },
     { href: "/products#lms", label: "LMS" },
     { href: "/products#crm", label: "CRM" },
     { href: "/products#sis", label: "SIS" },

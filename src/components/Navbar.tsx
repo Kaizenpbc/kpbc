@@ -19,7 +19,8 @@ const serviceItems = [
 ];
 
 const productItems = [
-  { href: "/products#dms", label: "Document Management System" },
+  { href: "/products#ecm", label: "Enterprise Content Management" },
+  { href: "/products#bpm", label: "Business Process Management" },
   { href: "/products#lms", label: "Learning Management System" },
   { href: "/products#crm", label: "Customer Relationship Management" },
   { href: "/products#sis", label: "Student Information System" },

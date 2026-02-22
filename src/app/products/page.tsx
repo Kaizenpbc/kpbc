@@ -6,20 +6,37 @@ import AnimatedSection from "@/components/AnimatedSection";
 
 const products = [
   {
-    id: "dms",
-    abbr: "DMS",
-    name: "Document Management System",
-    tagline: "Organize. Collaborate. Secure.",
-    description: "A comprehensive document management solution that helps organizations digitize, organize, store, and retrieve documents with ease. Streamline your document workflows and ensure compliance with built-in version control and access management.",
+    id: "ecm",
+    abbr: "ECM",
+    name: "Enterprise Content Management",
+    tagline: "Capture. Manage. Deliver.",
+    description: "A comprehensive enterprise content management platform that helps organizations capture, manage, store, and deliver content and documents related to organizational processes. Powered by Acyutah Technologies' FineDocs platform, our ECM solution streamlines document workflows and ensures compliance with built-in version control, records management, and access controls.",
     features: [
-      "Centralized Document Repository",
-      "Advanced Search & Filtering",
-      "Version Control & Audit Trail",
-      "Role-Based Access Control",
-      "Automated Workflow Routing",
-      "OCR & Document Scanning",
+      "Document & Records Management",
+      "Workflow & Business Process Automation",
+      "Advanced Capture & OCR",
+      "Enterprise Search & Retrieval",
+      "Web Portal & Collaboration",
+      "Cloud & Mobile Access",
     ],
     gradient: "from-blue-500 to-cyan-500",
+    demoLink: "/products/ecm",
+  },
+  {
+    id: "bpm",
+    abbr: "BPM",
+    name: "Business Process Management",
+    tagline: "Automate. Optimize. Transform.",
+    description: "A powerful business process management solution that enables organizations to design, automate, and optimize their workflows. Streamline approvals, reduce manual tasks, and gain full visibility into your business processes with real-time tracking and analytics.",
+    features: [
+      "Visual Workflow Designer",
+      "Automated Approval Routing",
+      "Task & SLA Management",
+      "Real-Time Process Analytics",
+      "Integration with Enterprise Systems",
+      "Configurable Business Rules",
+    ],
+    gradient: "from-indigo-500 to-blue-500",
   },
   {
     id: "lms",
@@ -144,10 +161,10 @@ export default function ProductsPage() {
 
                     <div className="mt-8 pt-6 border-t border-surface-light">
                       <Link
-                        href="/contact"
+                        href={product.demoLink || "/contact"}
                         className="inline-flex items-center text-primary hover:text-primary-light font-medium transition-colors text-sm"
                       >
-                        Request a Demo
+                        {product.demoLink ? "Learn More" : "Request a Demo"}
                         <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
