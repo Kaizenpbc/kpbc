@@ -6,9 +6,43 @@ import ThemeProvider from "@/components/ThemeProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Kaizen Project & Business Consultants Inc. | Innovative IT Solutions",
+  title: {
+    default: "Kaizen Project & Business Consultants Inc. | IT Solutions & Enterprise Software",
+    template: "%s | Kaizen Project & Business Consultants Inc.",
+  },
   description:
-    "Kaizen Project & Business Consultants Inc. delivers cutting-edge IT solutions including software development, cybersecurity, digital transformation, and enterprise products to drive your business forward.",
+    "Kaizen Project & Business Consultants Inc. delivers enterprise IT solutions including ECM (FineDocs™), BPM (FineFlow™), Core Banking (TrustBankCBS™), Loan Origination (TrustLOS™), CRM, ITSM, and AI Resume Writing services across Canada.",
+  keywords: [
+    "IT consulting Canada",
+    "enterprise content management",
+    "business process management",
+    "core banking software",
+    "loan origination software",
+    "ECM FineDocs",
+    "BPM FineFlow",
+    "TrustBankCBS",
+    "TrustLOS",
+    "CRM",
+    "ITSM",
+    "AI resume writing",
+    "project management consulting",
+    "staff augmentation",
+    "software solutions",
+    "Kaizen consulting",
+  ],
+  metadataBase: new URL("https://kpbc.ca"),
+  openGraph: {
+    type: "website",
+    locale: "en_CA",
+    url: "https://kpbc.ca",
+    siteName: "Kaizen Project & Business Consultants Inc.",
+    title: "Kaizen Project & Business Consultants Inc. | IT Solutions & Enterprise Software",
+    description:
+      "Enterprise IT solutions including ECM, BPM, Core Banking, Loan Origination, CRM, ITSM, and AI Resume Writing services across Canada.",
+  },
+  alternates: {
+    canonical: "https://kpbc.ca",
+  },
 };
 
 export default function RootLayout({
