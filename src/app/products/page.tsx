@@ -8,7 +8,7 @@ const products = [
   {
     id: "ecm",
     abbr: "ECM",
-    name: "ECM \u2014 FineDocs\u2122",
+    name: "Enterprise Content Management",
     tagline: "Capture. Manage. Deliver.",
     description: "A comprehensive enterprise content management platform that helps organizations capture, manage, store, and deliver content and documents related to organizational processes. Powered by Acyutah Technologies' FineDocs platform, our ECM solution streamlines document workflows and ensures compliance with built-in version control, records management, and access controls.",
     features: [
@@ -25,7 +25,7 @@ const products = [
   {
     id: "bpm",
     abbr: "BPM",
-    name: "BPM \u2014 FineFlow\u2122",
+    name: "Business Process Management",
     tagline: "Automate. Optimize. Transform.",
     description: "A powerful business process management solution powered by Acyutah Technologies\u2019 FineFlow\u2122 platform. Design, automate, and optimize your workflows with an intuitive visual process designer. Streamline approvals, reduce manual tasks, and gain full visibility into your business processes with real-time tracking and analytics.",
     features: [

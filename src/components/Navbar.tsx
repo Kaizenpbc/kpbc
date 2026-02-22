@@ -19,8 +19,8 @@ const serviceItems = [
 ];
 
 const productItems = [
-  { href: "/products#ecm", label: "Enterprise Content Management" },
-  { href: "/products#bpm", label: "Business Process Management" },
+  { href: "/products#ecm", label: "ECM (FineDocs\u2122)" },
+  { href: "/products#bpm", label: "BPM (FineFlow\u2122)" },
   { href: "/products#lms", label: "Learning Management System" },
   { href: "/products#crm", label: "CRM (Freshsales)" },
   { href: "/products#sis", label: "Student Information System" },
@@ -29,6 +29,9 @@ const productItems = [
   { href: "/products#ma", label: "Marketing (Freshmarketer)" },
   { href: "/products#chat", label: "Live Chat (Freshchat)" },
   { href: "/products#phone", label: "Cloud Phone (Freshcaller)" },
+  { href: "/products#cbs", label: "Core Banking (TrustBankCBS\u2122)" },
+  { href: "/products#los", label: "Loan Origination (TrustLOS\u2122)" },
+  { href: "/products#ai-resume", label: "AI Resume Writing" },
 ];
 
 
