@@ -177,8 +177,9 @@ export default function BPMPage() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
               Business Process <span className="gradient-text">Management</span>
             </h1>
+            <p className="text-2xl font-semibold text-heading mb-2">FineFlow&#8482;</p>
             <p className="text-lg sm:text-xl text-muted leading-relaxed">
-              Automate. Optimize. Transform. &mdash; Powerful BPM solutions to design, automate, and optimize your business workflows for maximum efficiency.
+              Automate. Optimize. Transform. &mdash; Powerful BPM solutions powered by Acyutah Technologies&rsquo; FineFlow&#8482; platform to design, automate, and optimize your business workflows for maximum efficiency.
             </p>
           </motion.div>
         </div>
@@ -300,7 +301,7 @@ export default function BPMPage() {
                 Powered by <span className="gradient-text">Acyutah Technologies</span>
               </p>
               <p className="text-muted text-sm mt-2 max-w-xl mx-auto">
-                KPBC partners with Acyutah Technologies to deliver enterprise-grade BPM solutions built on a proven process automation platform.
+                KPBC partners with Acyutah Technologies to deliver enterprise-grade BPM solutions powered by the FineFlow&#8482; process automation platform.
               </p>
             </div>
           </AnimatedSection>

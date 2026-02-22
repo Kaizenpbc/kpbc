@@ -176,8 +176,9 @@ export default function CRMPage() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
               Customer <span className="gradient-text">Relationship Management</span>
             </h1>
+            <p className="text-2xl font-semibold text-heading mb-2">FineDocs&#8482;</p>
             <p className="text-lg sm:text-xl text-muted leading-relaxed">
-              Manage customer interactions, track sales pipelines, and build lasting relationships with Freshsales &mdash; an AI-powered CRM platform that helps teams close deals faster.
+              Manage customer interactions, track sales pipelines, and build lasting relationships with FineDocs&#8482; &mdash; a comprehensive CRM platform powered by Acyutah Technologies that helps teams close deals faster.
             </p>
           </motion.div>
         </div>
@@ -189,13 +190,13 @@ export default function CRMPage() {
           <AnimatedSection>
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl sm:text-4xl font-bold text-heading mb-6">
-                The Freshsales <span className="gradient-text">CRM Platform</span>
+                The FineDocs&#8482; <span className="gradient-text">CRM Platform</span>
               </h2>
               <p className="text-muted leading-relaxed text-lg mb-4">
-                Freshsales is an AI-powered CRM by Freshworks designed to help sales teams attract, engage, and close deals faster. With built-in email, phone, chat, and AI-powered lead scoring via Freddy AI, Freshsales gives teams everything they need to manage their pipeline and accelerate revenue.
+                FineDocs&#8482; by Acyutah Technologies is a comprehensive CRM platform designed to help sales teams attract, engage, and close deals faster. With integrated document management, multichannel communication, and workflow automation, FineDocs&#8482; gives teams everything they need to manage their pipeline and accelerate revenue.
               </p>
               <p className="text-muted leading-relaxed">
-                From contact management to deal tracking, Freshsales provides a 360-degree view of every customer interaction &mdash; empowering sales teams with the context and tools they need to build meaningful relationships and drive predictable growth.
+                From contact management to deal tracking, FineDocs&#8482; provides a 360-degree view of every customer interaction &mdash; empowering sales teams with the context and tools they need to build meaningful relationships and drive predictable growth.
               </p>
             </div>
           </AnimatedSection>
@@ -238,7 +239,7 @@ export default function CRMPage() {
               Product <span className="gradient-text">Components</span>
             </h2>
             <p className="text-muted max-w-2xl mx-auto">
-              The Freshsales CRM platform is comprised of six integrated modules, each designed to address a critical aspect of the sales process.
+              The FineDocs&#8482; CRM platform is comprised of six integrated modules, each designed to address a critical aspect of the sales process.
             </p>
           </AnimatedSection>
 
@@ -296,10 +297,10 @@ export default function CRMPage() {
             <div className="text-center p-8 rounded-2xl bg-surface border border-surface-light">
               <p className="text-sm text-muted uppercase tracking-wider mb-2">Technology Partner</p>
               <p className="text-lg font-semibold text-heading">
-                Powered by <span className="gradient-text">Freshworks</span>
+                Powered by <span className="gradient-text">Acyutah Technologies</span>
               </p>
               <p className="text-muted text-sm mt-2 max-w-xl mx-auto">
-                KPBC partners with Freshworks to deliver enterprise-grade Freshsales CRM solutions built on the proven Freshworks platform.
+                KPBC partners with Acyutah Technologies to deliver enterprise-grade FineDocs&#8482; CRM solutions built on a proven platform.
               </p>
             </div>
           </AnimatedSection>
@@ -314,7 +315,7 @@ export default function CRMPage() {
               Ready to Accelerate Your Sales?
             </h2>
             <p className="text-muted max-w-2xl mx-auto mb-8">
-              Contact us to schedule a demo and discover how Freshsales CRM can transform your sales operations and drive revenue growth.
+              Contact us to schedule a demo and discover how FineDocs&#8482; CRM can transform your sales operations and drive revenue growth.
             </p>
             <Link
               href="/contact"
