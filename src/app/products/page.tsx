@@ -25,9 +25,9 @@ const products = [
   {
     id: "bpm",
     abbr: "BPM",
-    name: "BPM \u2014 FineFlow\u2122",
+    name: "Business Process Management",
     tagline: "Automate. Optimize. Transform.",
-    description: "A powerful business process management solution powered by Acyutah Technologies\u2019 FineFlow\u2122. Design, automate, and optimize your workflows with an intuitive visual process designer. Streamline approvals, reduce manual tasks, and gain full visibility into your business processes with real-time tracking and analytics.",
+    description: "A powerful business process management solution that enables organizations to design, automate, and optimize their workflows. Streamline approvals, reduce manual tasks, and gain full visibility into your business processes with real-time tracking and analytics.",
     features: [
       "Visual Workflow Designer",
       "Automated Approval Routing",
@@ -59,16 +59,16 @@ const products = [
   {
     id: "crm",
     abbr: "CRM",
-    name: "CRM \u2014 FineDocs\u2122",
+    name: "Customer Relationship Management",
     tagline: "Connect. Engage. Grow.",
-    description: "A comprehensive customer relationship management platform powered by Acyutah Technologies\u2019 FineDocs\u2122. Manage customer interactions, track sales pipelines, and build lasting relationships with integrated document management, multichannel communication, and intelligent automation to drive revenue growth at scale.",
+    description: "An AI-powered CRM platform built on Freshsales that helps you manage customer interactions, track sales pipelines, and build lasting relationships. With Freddy AI for lead scoring, multichannel communication, and intelligent automation, drive revenue growth at scale.",
     features: [
-      "Customer & Contact Management",
+      "AI-Powered Lead Scoring",
       "Sales Pipeline Management",
       "Multichannel Communication",
       "Workflow Automation",
-      "Integrated Document Management",
       "Analytics & Reporting",
+      "Freddy AI Insights",
     ],
     gradient: "from-emerald-500 to-teal-500",
     demoLink: "/products/crm",
@@ -174,23 +174,6 @@ const products = [
     ],
     gradient: "from-teal-500 to-cyan-500",
     demoLink: "/products/phone",
-  },
-  {
-    id: "ai-resume",
-    abbr: "AI",
-    name: "AI Resume Preparation",
-    tagline: "Craft. Optimize. Land the Job.",
-    description: "An intelligent resume preparation platform that leverages advanced AI to help job seekers create polished, ATS-optimized resumes tailored to specific roles and industries. From formatting and keyword optimization to personalized content suggestions, our AI engine transforms your experience into a compelling career narrative that gets noticed.",
-    features: [
-      "AI-Powered Resume Builder",
-      "ATS Optimization & Scoring",
-      "Industry-Specific Tailoring",
-      "Keyword & Skills Analysis",
-      "Cover Letter Generation",
-      "Multi-Format Export (PDF, DOCX)",
-    ],
-    gradient: "from-amber-500 to-orange-500",
-    demoLink: "/products/ai-resume",
   },
 ];
 
