@@ -49,6 +49,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://kpbc.ca",
   },
+  icons: {
+    icon: "/kpbc-logo.svg",
+    apple: "/kpbc-logo.svg",
+  },
   verification: {
     google: "google3dd9688ad43ac813",
   },
