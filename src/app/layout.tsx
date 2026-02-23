@@ -58,6 +58,77 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://kpbc.ca/#organization",
+      name: "Kaizen Project & Business Consultants Inc.",
+      url: "https://kpbc.ca",
+      logo: "https://kpbc.ca/kpbc-logo.svg",
+      description:
+        "Enterprise IT solutions including ECM, BPM, Core Banking, Loan Origination, CRM, ITSM, and AI Resume Writing services across Canada.",
+      areaServed: {
+        "@type": "Country",
+        name: "Canada",
+      },
+      serviceType: [
+        "IT Consulting",
+        "Project Management",
+        "Staff Augmentation",
+        "Software Solutions",
+        "Enterprise Content Management",
+        "Business Process Management",
+        "Core Banking Software",
+        "Loan Origination Software",
+        "CRM",
+        "ITSM",
+        "AI Resume Writing",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://kpbc.ca/#website",
+      url: "https://kpbc.ca",
+      name: "Kaizen Project & Business Consultants Inc.",
+      publisher: { "@id": "https://kpbc.ca/#organization" },
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: "FineDocs™ ECM",
+      applicationCategory: "BusinessApplication",
+      description: "Enterprise Content Management platform by Acyutah Technologies.",
+      url: "https://kpbc.ca/products/ecm",
+      provider: { "@id": "https://kpbc.ca/#organization" },
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: "FineFlow™ BPM",
+      applicationCategory: "BusinessApplication",
+      description: "Business Process Management platform by Acyutah Technologies.",
+      url: "https://kpbc.ca/products/bpm",
+      provider: { "@id": "https://kpbc.ca/#organization" },
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: "TrustBankCBS™",
+      applicationCategory: "BusinessApplication",
+      description: "Core Banking Software by Trust Fintech Limited.",
+      url: "https://kpbc.ca/products/cbs",
+      provider: { "@id": "https://kpbc.ca/#organization" },
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: "TrustLOS™",
+      applicationCategory: "BusinessApplication",
+      description: "Loan Origination Software by Trust Fintech Limited.",
+      url: "https://kpbc.ca/products/los",
+      provider: { "@id": "https://kpbc.ca/#organization" },
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -65,6 +136,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="antialiased">
         <ThemeProvider>
           <Navbar />
