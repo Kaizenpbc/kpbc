@@ -86,6 +86,15 @@ const services = [
     features: ["Dedicated Development Teams", "Specialized Skill Sourcing", "Flexible Engagement Models", "Rapid Team Scaling"],
     gradient: "from-cyan-500 to-sky-500",
   },
+  {
+    id: "ai-resume-writing",
+    abbr: "AI",
+    title: "AI Resume Writing",
+    tagline: "Craft. Optimize. Land the Job.",
+    description: "An intelligent resume preparation service that leverages advanced AI to help job seekers create polished, ATS-optimized resumes tailored to specific roles and industries. From formatting and keyword optimization to personalized content suggestions, our AI engine transforms your experience into a compelling career narrative that gets noticed.",
+    features: ["AI-Powered Resume Builder", "ATS Optimization & Scoring", "Industry-Specific Tailoring", "Keyword & Skills Analysis", "Cover Letter Generation", "Multi-Format Export (PDF, DOCX)"],
+    gradient: "from-amber-500 to-orange-500",
+  },
 ];
 
 export default function ServicesPage() {

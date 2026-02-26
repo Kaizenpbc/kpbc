@@ -16,6 +16,7 @@ const serviceItems = [
   { href: "/services#business-process-reengineering", abbr: "BPR", label: "Business Process Reengineering" },
   { href: "/services#it-consulting", abbr: "ITC", label: "IT Consulting & Support" },
   { href: "/services#staff-augmentation", abbr: "SA", label: "Staff Augmentation" },
+  { href: "/services#ai-resume-writing", abbr: "AI", label: "AI Resume Writing" },
 ];
 
 const productItems = [
@@ -31,7 +32,7 @@ const productItems = [
   { href: "/products#phone", label: "Cloud Phone (Freshcaller)" },
   { href: "/products#cbs", label: "Core Banking (TrustBankCBS\u2122)" },
   { href: "/products#los", label: "Loan Origination (TrustLOS\u2122)" },
-  { href: "/products#ai-resume", label: "AI Resume Writing" },
+  { href: "/products#ai-pm", label: "AI Project Management" },
 ];
 
 

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
+import { useTheme } from "./ThemeProvider";
 
 interface Slide {
   subtitle: string;
@@ -9,7 +10,8 @@ interface Slide {
   highlight: string;
   cta: { label: string; href: string };
   backgroundImage?: string;
-  backgroundGradient: string;
+  darkGradient: string;
+  lightGradient: string;
 }
 
 const slides: Slide[] = [
@@ -18,30 +20,37 @@ const slides: Slide[] = [
     title: "Welcome to",
     highlight: "Kaizen",
     cta: { label: "Our Services", href: "/services" },
-    backgroundGradient:
+    darkGradient:
       "linear-gradient(135deg, #0f172a 0%, #1e3a5f 40%, #0c4a6e 70%, #0a0f1a 100%)",
+    lightGradient:
+      "linear-gradient(135deg, #dbeafe 0%, #bfdbfe 40%, #93c5fd 70%, #e0f2fe 100%)",
   },
   {
     subtitle: "Innovative IT Solutions",
     title: "Transform Your Business with",
     highlight: "Technology",
     cta: { label: "Our Products", href: "/products" },
-    backgroundGradient:
+    darkGradient:
       "linear-gradient(135deg, #0a0f1a 0%, #1a1a2e 40%, #16213e 70%, #0f3460 100%)",
+    lightGradient:
+      "linear-gradient(135deg, #e0f2fe 0%, #c7d2fe 40%, #a5b4fc 70%, #dbeafe 100%)",
   },
   {
     subtitle: "Trusted by Organizations Worldwide",
     title: "Delivering Excellence in",
     highlight: "Every Project",
     cta: { label: "Contact Us", href: "/contact" },
-    backgroundGradient:
+    darkGradient:
       "linear-gradient(135deg, #0a0f1a 0%, #1b2838 40%, #0d3b66 70%, #0a0f1a 100%)",
+    lightGradient:
+      "linear-gradient(135deg, #f0f9ff 0%, #bae6fd 40%, #7dd3fc 70%, #e0f2fe 100%)",
   },
 ];
 
 const AUTOPLAY_INTERVAL = 6000;
 
 export default function HeroSlider({ paused = false }: { paused?: boolean }) {
+  const { theme } = useTheme();
   const totalSlides = slides.length;
   // Extended slides: [clone of last, ...real slides, clone of first]
   const extendedSlides = [slides[totalSlides - 1], ...slides, slides[0]];
@@ -125,17 +134,17 @@ export default function HeroSlider({ paused = false }: { paused?: boolean }) {
               style={{
                 background: slide.backgroundImage
                   ? `url(${slide.backgroundImage}) center/cover no-repeat`
-                  : slide.backgroundGradient,
+                  : theme === "light" ? slide.lightGradient : slide.darkGradient,
               }}
             />
-            {/* Dark overlay */}
-            <div className="absolute inset-0 bg-black/40" />
+            {/* Overlay */}
+            <div className={`absolute inset-0 ${theme === "light" ? "bg-white/20" : "bg-black/40"}`} />
 
             {/* Slide Content */}
             <div className="relative z-10 flex items-center justify-center h-full">
               <div className="text-center px-4 max-w-4xl mx-auto">
                 {/* Subtitle */}
-                <p className="text-sm sm:text-base uppercase tracking-[0.3em] text-white/80 mb-4 font-medium">
+                <p className={`text-sm sm:text-base uppercase tracking-[0.3em] mb-4 font-medium ${theme === "light" ? "text-slate-700" : "text-white/80"}`}>
                   {slide.subtitle}
                 </p>
 
@@ -143,7 +152,7 @@ export default function HeroSlider({ paused = false }: { paused?: boolean }) {
                 <div className="w-16 h-0.5 bg-gradient-to-r from-primary to-accent mx-auto mb-6" />
 
                 {/* Title */}
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4">
+                <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 ${theme === "light" ? "text-slate-900" : "text-white"}`}>
                   {slide.title}{" "}
                   <span className="gradient-text">{slide.highlight}</span>
                 </h1>

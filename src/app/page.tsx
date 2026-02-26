@@ -15,6 +15,7 @@ const services = [
   { abbr: "BPR", name: "Business Process Reengineering", description: "Redesign business processes for dramatic improvements in productivity and efficiency." },
   { abbr: "ITC", name: "IT Consulting & Support", description: "Strategic IT guidance, managed services, and dedicated helpdesk support." },
   { abbr: "SA", name: "Staff Augmentation", description: "Extend your team with skilled IT professionals who integrate seamlessly into your workflows." },
+  { abbr: "AI", name: "AI Resume Writing", description: "AI-powered resume builder that creates ATS-optimized resumes tailored to your target role." },
 ];
 
 const products = [
@@ -28,6 +29,7 @@ const products = [
   { abbr: "MA", name: "Marketing Automation", description: "Data-driven marketing campaigns powered by Freshmarketer." },
   { abbr: "FC", name: "Live Chat & Messaging", description: "Real-time conversational engagement powered by Freshchat." },
   { abbr: "FP", name: "Cloud Phone System", description: "Modern cloud phone system powered by Freshcaller." },
+  { abbr: "AI-PM", name: "AI Project Management Assistant", description: "AI-powered assistant for task scheduling, risk prediction, and project delivery." },
 ];
 
 const stats = [
@@ -184,13 +186,13 @@ export default function Home() {
           <AnimatedSection>
             <div className="relative rounded-3xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-90" />
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_transparent_0%,_rgba(0,0,0,0.3)_100%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_transparent_0%,_rgba(0,0,0,0.15)_100%)]" />
               <div className="relative px-8 py-16 sm:px-16 sm:py-20 text-center">
                 <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
                   Ready to Transform Your Business?
                 </h2>
                 <p className="text-white/80 max-w-2xl mx-auto mb-8 text-lg">
-                  Let&apos;s discuss how Kaizen Project &amp; Business Consultants Inc. can help you achieve your technology goals and stay ahead of the competition.
+                  Serving businesses across Canada and the Caribbean. Let&apos;s discuss how Kaizen Project &amp; Business Consultants Inc. can help you achieve your technology goals.
                 </p>
                 <Link
                   href="/contact"

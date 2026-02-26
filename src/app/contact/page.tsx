@@ -174,6 +174,7 @@ export default function ContactPage() {
                               <option value="bpr">Business Process Reengineering</option>
                               <option value="it-consulting">IT Consulting & Support</option>
                               <option value="staff-augmentation">Staff Augmentation</option>
+                              <option value="ai-resume-writing">AI Resume Writing</option>
                             </>
                           ) : (
                             <>
@@ -183,6 +184,7 @@ export default function ContactPage() {
                               <option value="lms">Learning Management System</option>
                               <option value="crm">Customer Relationship Management</option>
                               <option value="sis">Student Information System</option>
+                              <option value="ai-pm">AI Project Management Assistant</option>
                             </>
                           )}
                         </select>
@@ -275,8 +277,8 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-heading font-semibold mb-1">Visit Us</h3>
-                      <p className="text-muted text-sm">Toronto, Ontario, Canada</p>
+                      <h3 className="text-heading font-semibold mb-1">Our Offices</h3>
+                      <p className="text-muted text-sm">Toronto, Ontario, Canada<br />Kingston, Jamaica<br />Bridgetown, Barbados<br />Georgetown, Guyana<br />Port of Spain, Trinidad &amp; Tobago</p>
                     </div>
                   </div>
                 </div>

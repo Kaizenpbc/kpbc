@@ -15,6 +15,7 @@ const footerLinks = {
     { href: "/services#digital-transformation", label: "Digital Transformation" },
     { href: "/services#it-consulting", label: "IT Consulting" },
     { href: "/services#staff-augmentation", label: "Staff Augmentation" },
+    { href: "/services#ai-resume-writing", label: "AI Resume Writing" },
   ],
   Products: [
     { href: "/products#ecm", label: "ECM" },
@@ -27,6 +28,7 @@ const footerLinks = {
     { href: "/products#ma", label: "Marketing (Freshmarketer)" },
     { href: "/products#chat", label: "Chat (Freshchat)" },
     { href: "/products#phone", label: "Phone (Freshcaller)" },
+    { href: "/products#ai-pm", label: "AI Project Management" },
   ],
 };
 
@@ -41,8 +43,11 @@ export default function Footer() {
               <Image src="/kpbc-logo.svg" alt="KPBC Logo" width={40} height={40} />
               <span className="text-xl font-bold text-heading">KPBC</span>
             </div>
+            <p className="text-muted text-sm leading-relaxed mb-3">
+              Delivering innovative IT solutions that drive business growth and digital transformation across Canada and the Caribbean.
+            </p>
             <p className="text-muted text-sm leading-relaxed">
-              Delivering innovative IT solutions that drive business growth and digital transformation.
+              Toronto &middot; Kingston &middot; Bridgetown &middot; Georgetown &middot; Port of Spain
             </p>
           </div>
 

@@ -11,12 +11,18 @@ export const metadata: Metadata = {
     template: "%s | Kaizen Project & Business Consultants Inc.",
   },
   description:
-    "Kaizen Project & Business Consultants Inc. delivers enterprise IT solutions including ECM (FineDocs™), BPM (FineFlow™), Core Banking (TrustBankCBS™), Loan Origination (TrustLOS™), CRM, ITSM, and AI Resume Writing services across Canada.",
+    "Kaizen Project & Business Consultants Inc. delivers enterprise IT solutions including ECM (FineDocs™), BPM (FineFlow™), Core Banking (TrustBankCBS™), Loan Origination (TrustLOS™), CRM, ITSM, and AI Resume Writing, and AI Project Management services across Canada and the Caribbean.",
   keywords: [
     "IT consulting Canada",
+    "IT consulting Caribbean",
+    "IT consulting Jamaica",
+    "IT consulting Barbados",
+    "IT consulting Guyana",
+    "IT consulting Trinidad and Tobago",
     "enterprise content management",
     "business process management",
     "core banking software",
+    "core banking Caribbean",
     "loan origination software",
     "ECM FineDocs",
     "BPM FineFlow",
@@ -27,8 +33,10 @@ export const metadata: Metadata = {
     "AI resume writing",
     "project management consulting",
     "staff augmentation",
+    "software solutions Caribbean",
     "software solutions",
     "Kaizen consulting",
+    "digital transformation Caribbean",
   ],
   metadataBase: new URL("https://kpbc.ca"),
   openGraph: {
@@ -38,13 +46,13 @@ export const metadata: Metadata = {
     siteName: "Kaizen Project & Business Consultants Inc.",
     title: "Kaizen Project & Business Consultants Inc. | IT Solutions & Enterprise Software",
     description:
-      "Enterprise IT solutions including ECM, BPM, Core Banking, Loan Origination, CRM, ITSM, and AI Resume Writing services across Canada.",
+      "Enterprise IT solutions including ECM, BPM, Core Banking, Loan Origination, CRM, ITSM, and AI Resume Writing, and AI Project Management services across Canada and the Caribbean.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Kaizen Project & Business Consultants Inc. | IT Solutions & Enterprise Software",
     description:
-      "Enterprise IT solutions including ECM, BPM, Core Banking, Loan Origination, CRM, ITSM, and AI Resume Writing services across Canada.",
+      "Enterprise IT solutions including ECM, BPM, Core Banking, Loan Origination, CRM, ITSM, and AI Resume Writing, and AI Project Management services across Canada and the Caribbean.",
   },
   alternates: {
     canonical: "https://kpbc.ca",
@@ -68,11 +76,21 @@ const jsonLd = {
       url: "https://kpbc.ca",
       logo: "https://kpbc.ca/kpbc-logo.svg",
       description:
-        "Enterprise IT solutions including ECM, BPM, Core Banking, Loan Origination, CRM, ITSM, and AI Resume Writing services across Canada.",
-      areaServed: {
-        "@type": "Country",
-        name: "Canada",
-      },
+        "Enterprise IT solutions including ECM, BPM, Core Banking, Loan Origination, CRM, ITSM, and AI Resume Writing, and AI Project Management services across Canada and the Caribbean.",
+      areaServed: [
+        { "@type": "Country", name: "Canada" },
+        { "@type": "Country", name: "Jamaica" },
+        { "@type": "Country", name: "Barbados" },
+        { "@type": "Country", name: "Guyana" },
+        { "@type": "Country", name: "Trinidad and Tobago" },
+      ],
+      location: [
+        { "@type": "Place", address: { "@type": "PostalAddress", addressLocality: "Toronto", addressRegion: "Ontario", addressCountry: "CA" } },
+        { "@type": "Place", address: { "@type": "PostalAddress", addressLocality: "Kingston", addressCountry: "JM" } },
+        { "@type": "Place", address: { "@type": "PostalAddress", addressLocality: "Bridgetown", addressCountry: "BB" } },
+        { "@type": "Place", address: { "@type": "PostalAddress", addressLocality: "Georgetown", addressCountry: "GY" } },
+        { "@type": "Place", address: { "@type": "PostalAddress", addressLocality: "Port of Spain", addressCountry: "TT" } },
+      ],
       serviceType: [
         "IT Consulting",
         "Project Management",
