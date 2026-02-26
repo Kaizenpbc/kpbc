@@ -12,7 +12,7 @@ export default function TawkToChat() {
     <>
       <Script
         id="tawk-to-init"
-        strategy="beforeInteractive"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             var Tawk_API = Tawk_API || {};
