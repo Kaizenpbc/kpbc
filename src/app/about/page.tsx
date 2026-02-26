@@ -13,7 +13,7 @@ const team = [
   {
     name: "Akil Annamunthodo",
     role: "CTO & Co-Founder",
-    bio: "A seasoned technology leader with deep expertise in software architecture, cybersecurity, and digital transformation strategies.",
+    bio: "A seasoned technology leader with deep expertise in software architecture, cybersecurity, and digital transformation, Akil drives Kaizen Project & Business Consultants Inc.'s technical strategy and product innovation.",
     initials: "AA",
   },
 ];
@@ -71,7 +71,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl"
+            className="max-w-3xl mx-auto text-center"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
               About <span className="gradient-text">Kaizen Project &amp; Business Consultants Inc.</span>
