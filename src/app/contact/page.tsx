@@ -15,26 +15,31 @@ export default function ContactPage() {
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setStatus("loading");
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+    const subject = encodeURIComponent(
+      `New Contact Form: ${formData.name}`
+    );
+    const lines = [
+      `Name: ${formData.name}`,
+      `Email: ${formData.email}`,
+      formData.company ? `Company: ${formData.company}` : "",
+      formData.area ? `Area of Interest: ${formData.area}` : "",
+      formData.service ? `Service: ${formData.service}` : "",
+      "",
+      "Message:",
+      formData.message,
+    ]
+      .filter(Boolean)
+      .join("\n");
+    const body = encodeURIComponent(lines);
 
-      if (response.ok) {
-        setStatus("success");
-        setFormData({ name: "", email: "", company: "", area: "", service: "", message: "" });
-      } else {
-        setStatus("error");
-      }
-    } catch (err) {
-      setStatus("error");
-    }
+    window.location.href = `mailto:sales@kpbc.ca?subject=${subject}&body=${body}`;
+
+    setStatus("success");
+    setFormData({ name: "", email: "", company: "", area: "", service: "", message: "" });
   };
 
   return (
