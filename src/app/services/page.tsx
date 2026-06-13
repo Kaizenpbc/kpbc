@@ -13,6 +13,7 @@ const services = [
     description: "We build custom software solutions that address your unique business challenges. From enterprise applications to elegant consumer-facing products, our development team delivers robust, scalable software.",
     features: ["Custom Application Development", "Web & Mobile Applications", "API Development & Integration", "Legacy System Modernization"],
     gradient: "from-blue-500 to-cyan-500",
+    ctaLabel: "Book a Discovery Call",
   },
   {
     id: "application-development",
@@ -22,6 +23,7 @@ const services = [
     description: "End-to-end application development services from concept to deployment. We craft high-performance applications using modern frameworks and best practices to ensure reliability and maintainability.",
     features: ["Full-Stack Development", "Cloud-Native Applications", "Progressive Web Apps", "Cross-Platform Solutions"],
     gradient: "from-violet-500 to-purple-500",
+    ctaLabel: "Book a Discovery Call",
   },
   {
     id: "website-development",
@@ -31,15 +33,17 @@ const services = [
     description: "Modern, responsive websites that make a lasting impression. We design and develop websites that are fast, accessible, and optimized for search engines, helping you connect with your audience effectively.",
     features: ["Responsive Web Design", "E-Commerce Platforms", "Content Management Systems", "SEO Optimization"],
     gradient: "from-emerald-500 to-teal-500",
+    ctaLabel: "Book a Discovery Call",
   },
   {
     id: "cybersecurity",
     abbr: "CS",
     title: "Cybersecurity",
     tagline: "Protect. Detect. Respond.",
-    description: "Comprehensive cybersecurity services to protect your organization from evolving threats. We implement defense-in-depth strategies tailored to your risk profile and compliance requirements.",
+    description: "Protect your digital assets with continuous monitoring, security audits, and compliance support for regulated industries. We implement defense-in-depth strategies tailored to your risk profile.",
     features: ["Security Assessments & Audits", "Threat Detection & Response", "Compliance & Governance", "Security Awareness Training"],
     gradient: "from-red-500 to-rose-500",
+    ctaLabel: "Request a Security Assessment",
   },
   {
     id: "penetration-testing",
@@ -49,15 +53,17 @@ const services = [
     description: "Identify vulnerabilities before attackers do. Our certified penetration testers simulate real-world attacks across your networks, applications, and infrastructure to uncover security weaknesses and provide actionable remediation guidance.",
     features: ["Network & Infrastructure Testing", "Web Application Penetration Testing", "Social Engineering Assessments", "Detailed Remediation Reports"],
     gradient: "from-orange-500 to-red-500",
+    ctaLabel: "Request a Security Assessment",
   },
   {
     id: "digital-transformation",
     abbr: "DT",
     title: "Business Digital Transformation",
     tagline: "Innovate. Modernize. Grow.",
-    description: "Navigate the digital landscape with confidence. We help organizations reimagine their operations, adopt new technologies, and create digital-first strategies that deliver measurable business outcomes.",
+    description: "We redesign processes and implement automation to cut manual work and reduce turnaround times. Our team helps organizations adopt new technologies and create digital-first strategies that deliver measurable business outcomes.",
     features: ["Digital Strategy & Roadmapping", "Process Automation", "Cloud Migration", "Data Analytics & Insights"],
     gradient: "from-amber-500 to-orange-500",
+    ctaLabel: "Book a Discovery Call",
   },
   {
     id: "business-process-reengineering",
@@ -67,6 +73,7 @@ const services = [
     description: "Fundamentally rethink and redesign your business processes to achieve dramatic improvements in productivity, quality, and efficiency. We identify bottlenecks and implement streamlined workflows.",
     features: ["Process Analysis & Mapping", "Workflow Optimization", "Change Management", "Performance Measurement"],
     gradient: "from-pink-500 to-fuchsia-500",
+    ctaLabel: "Book a Discovery Call",
   },
   {
     id: "it-consulting",
@@ -76,6 +83,7 @@ const services = [
     description: "Expert IT guidance and reliable support services to keep your technology running smoothly. From strategic planning to day-to-day helpdesk operations, we are your trusted technology partner.",
     features: ["IT Strategy & Planning", "Managed IT Services", "24/7 Helpdesk Support", "Infrastructure Management"],
     gradient: "from-indigo-500 to-blue-500",
+    ctaLabel: "Book a Discovery Call",
   },
   {
     id: "staff-augmentation",
@@ -85,15 +93,17 @@ const services = [
     description: "Extend your team with skilled IT professionals who integrate seamlessly into your workflows. Whether you need specialized expertise for a critical project or additional capacity to meet deadlines, our staff augmentation services provide the right talent, right when you need it.",
     features: ["Dedicated Development Teams", "Specialized Skill Sourcing", "Flexible Engagement Models", "Rapid Team Scaling"],
     gradient: "from-cyan-500 to-sky-500",
+    ctaLabel: "Discuss Your Staffing Needs",
   },
   {
     id: "ai-resume-writing",
     abbr: "AI",
     title: "AI Resume Writing",
     tagline: "Craft. Optimize. Land the Job.",
-    description: "An intelligent resume preparation service that leverages advanced AI to help job seekers create polished, ATS-optimized resumes tailored to specific roles and industries. From formatting and keyword optimization to personalized content suggestions, our AI engine transforms your experience into a compelling career narrative that gets noticed.",
+    description: "An intelligent resume preparation service for job seekers and HR partners. Our AI engine creates polished, ATS-optimized resumes tailored to specific roles and industries — from formatting and keyword optimization to personalized content suggestions that transform your experience into a compelling career narrative.",
     features: ["AI-Powered Resume Builder", "ATS Optimization & Scoring", "Industry-Specific Tailoring", "Keyword & Skills Analysis", "Cover Letter Generation", "Multi-Format Export (PDF, DOCX)"],
     gradient: "from-amber-500 to-orange-500",
+    ctaLabel: "Try a Guided Walkthrough",
   },
 ];
 
@@ -111,7 +121,7 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl"
+            className="max-w-3xl mx-auto text-center"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
               Our <span className="gradient-text">Services</span>
@@ -168,7 +178,7 @@ export default function ServicesPage() {
                       href="/contact"
                       className="inline-flex items-center text-primary hover:text-primary-light font-medium transition-colors text-sm"
                     >
-                      Get in Touch
+                      {service.ctaLabel}
                       <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 
@@ -7,13 +8,13 @@ const team = [
   {
     name: "Michael Annamunthodo",
     role: "CEO & Co-Founder",
-    bio: "With over 15 years of experience in enterprise IT solutions, Michael leads Kaizen Project & Business Consultants Inc.'s strategic vision and drives innovation across all service lines.",
+    bio: "Michael's career spans some of the most demanding technology environments in North American and Caribbean banking: Bank of Montreal, American Express, Royal Bank of Canada, Royal Bank of Trinidad & Tobago, and TD Bank. After a decade at TD Bank, he retired to lead Kaizen full-time, bringing institutional-grade discipline to every engagement.",
     initials: "MA",
   },
   {
     name: "Akil Annamunthodo",
     role: "CTO & Co-Founder",
-    bio: "A seasoned technology leader with deep expertise in software architecture, cybersecurity, and digital transformation strategies.",
+    bio: "A seasoned technology leader with deep expertise in software architecture, cybersecurity, and digital transformation strategies. Akil oversees product development and technology partnerships, ensuring enterprise-grade quality across all KPBC solutions.",
     initials: "AA",
   },
 ];
@@ -57,6 +58,15 @@ const values = [
   },
 ];
 
+const sectors = [
+  { name: "Government Agencies", detail: "PICA Jamaica, NWC Jamaica" },
+  { name: "Credit Unions & Banks", detail: "Core banking, loan origination" },
+  { name: "Financial Services", detail: "Compliance, KYC/AML workflows" },
+  { name: "Educational Institutions", detail: "LMS, student information systems" },
+  { name: "Healthcare", detail: "Document management, process automation" },
+  { name: "Enterprise & SMBs", detail: "CRM, ITSM, customer service" },
+];
+
 export default function AboutPage() {
   return (
     <>
@@ -71,40 +81,50 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl"
+            className="max-w-3xl mx-auto text-center"
           >
+            <p className="text-sm uppercase tracking-[0.3em] text-primary font-medium mb-4">Solutions Beyond Borders</p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              About <span className="gradient-text">Kaizen Project &amp; Business Consultants Inc.</span>
+              About <span className="gradient-text">KPBC</span>
             </h1>
-            <p className="text-lg sm:text-xl text-muted leading-relaxed">
-              We are a team of passionate technologists dedicated to helping businesses harness the power of technology. Since our founding, Kaizen Project &amp; Business Consultants Inc. has been at the forefront of delivering innovative IT solutions that drive real results.
+            <p className="text-lg sm:text-xl text-muted leading-relaxed mb-6">
+              Founded and headquartered in Canada, Kaizen Project &amp; Business Consultants Inc. is a consulting firm led by Michael Annamunthodo, with over 25 years of experience delivering IT solutions and project management services to leading financial institutions and government agencies across Canada and the Caribbean.
+            </p>
+            <p className="text-muted leading-relaxed">
+              We deliver enterprise IT solutions, workflow automation, cybersecurity, and digital transformation services — helping governments and financial institutions modernize operations with precision and speed.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Mission */}
+      {/* The Kaizen Philosophy */}
       <section className="py-24 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
               <h2 className="text-3xl sm:text-4xl font-bold text-heading mb-6">
-                Our <span className="gradient-text">Mission</span>
+                The <span className="gradient-text">Kaizen</span> Philosophy
               </h2>
               <p className="text-muted leading-relaxed mb-6">
-                At Kaizen Project &amp; Business Consultants Inc., our mission is to empower organizations through transformative technology solutions. We believe that the right technology, implemented strategically, can unlock unprecedented growth and efficiency.
+                &ldquo;Kaizen&rdquo; means continuous improvement — and it&rsquo;s more than our name. It&rsquo;s how we operate.
+              </p>
+              <p className="text-muted leading-relaxed mb-6">
+                Michael&rsquo;s career spans some of the most demanding technology environments in North American and Caribbean banking: Bank of Montreal, American Express, Royal Bank of Canada, Royal Bank of Trinidad &amp; Tobago, and TD Bank. After a decade at TD Bank, Michael retired to lead Kaizen full-time, bringing institutional-grade discipline to every engagement.
+              </p>
+              <p className="text-muted leading-relaxed mb-6">
+                Beyond the corporate sector, Michael has contributed to regional capacity-building, delivering project management training for the Governments of Barbados and the Bahamas.
               </p>
               <p className="text-muted leading-relaxed">
-                From custom software development to comprehensive cybersecurity solutions, we partner with businesses of all sizes to navigate the complexities of digital transformation and emerge stronger, smarter, and more competitive.
+                Today, Kaizen assembles diverse, skilled delivery teams drawn from an extensive professional network — tailoring the right expertise to each client&rsquo;s needs, whether the project calls for enterprise software, cybersecurity, or digital transformation.
               </p>
             </AnimatedSection>
             <AnimatedSection delay={0.2}>
               <div className="grid grid-cols-2 gap-4">
                 {[
+                  { number: "25+", label: "Years of Experience" },
                   { number: "50+", label: "Projects Delivered" },
                   { number: "99%", label: "Client Retention" },
-                  { number: "25+", label: "Years of Experience" },
-                  { number: "4", label: "Enterprise Products" },
+                  { number: "5", label: "Office Locations" },
                 ].map((stat) => (
                   <div key={stat.label} className="p-6 rounded-2xl bg-background border border-surface-light text-center">
                     <div className="text-2xl font-bold gradient-text mb-1">{stat.number}</div>
@@ -117,6 +137,102 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Proven Government Delivery */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="max-w-3xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-bold text-heading mb-6">
+              Proven Government <span className="gradient-text">Delivery</span>
+            </h2>
+            <p className="text-muted leading-relaxed mb-8">
+              Kaizen brings direct, current experience delivering technology initiatives within the Government of Jamaica:
+            </p>
+            <div className="space-y-6 mb-8">
+              <div className="p-6 rounded-2xl bg-surface border border-surface-light">
+                <h3 className="text-heading font-semibold mb-2">Passport, Immigration &amp; Citizenship Agency (PICA)</h3>
+                <p className="text-muted text-sm">CRM, AI Chat, and Contact Centre programme delivered on the Freshworks platform.</p>
+              </div>
+              <div className="p-6 rounded-2xl bg-surface border border-surface-light">
+                <h3 className="text-heading font-semibold mb-2">National Water Commission (NWC)</h3>
+                <p className="text-muted text-sm">Mobile application development for Jamaica&rsquo;s national water utility.</p>
+              </div>
+            </div>
+            <p className="text-muted leading-relaxed">
+              These engagements demonstrate our working knowledge of government procurement environments and our ability to deliver complex technology projects within institutional frameworks.
+            </p>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* How We Work */}
+      <section className="py-24 bg-surface">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="max-w-3xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-bold text-heading mb-6">
+              How We <span className="gradient-text">Work</span>
+            </h2>
+            <p className="text-muted leading-relaxed">
+              We don&rsquo;t maintain a large bench of idle consultants. Instead, we assemble the right team for each engagement from a trusted network of specialists — keeping costs lean while delivering deep, relevant expertise. Every project gets a team built for its specific requirements.
+            </p>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Sectors We Serve */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-heading mb-4">
+              Sectors We <span className="gradient-text">Serve</span>
+            </h2>
+            <p className="text-muted max-w-2xl mx-auto">
+              We specialize in industries where compliance, security, and operational efficiency are mission-critical.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {sectors.map((sector, i) => (
+              <AnimatedSection key={sector.name} delay={i * 0.08}>
+                <div className="p-6 rounded-2xl bg-surface border border-surface-light hover:border-primary/30 transition-all duration-300">
+                  <h3 className="text-heading font-semibold mb-1">{sector.name}</h3>
+                  <p className="text-muted text-sm">{sector.detail}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Partners */}
+      <section className="py-24 bg-surface">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-heading mb-4">
+              Technology <span className="gradient-text">Partners</span>
+            </h2>
+            <p className="text-muted max-w-2xl mx-auto">
+              We deliver enterprise solutions through certified partnerships with leading technology vendors.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            {[
+              { name: "Freshworks", role: "Implementation Partner", detail: "CRM, ITSM, CSM, Marketing, Chat, Phone" },
+              { name: "Acyutah Technologies", role: "ECM & BPM Partner", detail: "FineDocs ECM, FineFlow BPM" },
+              { name: "Trust Fintech", role: "Core Banking Partner", detail: "TrustBankCBS, TrustLOS" },
+            ].map((partner, i) => (
+              <AnimatedSection key={partner.name} delay={i * 0.1}>
+                <div className="p-6 rounded-2xl bg-background border border-surface-light text-center">
+                  <h3 className="text-heading font-semibold mb-1">{partner.name}</h3>
+                  <p className="text-primary text-xs font-medium mb-2">{partner.role}</p>
+                  <p className="text-muted text-sm">{partner.detail}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Values */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -125,7 +241,7 @@ export default function AboutPage() {
               Our <span className="gradient-text">Values</span>
             </h2>
             <p className="text-muted max-w-2xl mx-auto">
-              The principles that guide everything we do at Kaizen Project &amp; Business Consultants Inc.
+              The principles that guide everything we do at KPBC.
             </p>
           </AnimatedSection>
 
@@ -153,7 +269,7 @@ export default function AboutPage() {
               Meet the <span className="gradient-text">Team</span>
             </h2>
             <p className="text-muted max-w-2xl mx-auto">
-              The leadership behind Kaizen Project &amp; Business Consultants Inc.&apos;s vision and innovation.
+              The leadership behind KPBC&apos;s vision and innovation.
             </p>
           </AnimatedSection>
 
@@ -167,22 +283,39 @@ export default function AboutPage() {
                   <h3 className="text-xl font-semibold text-heading mb-1">{member.name}</h3>
                   <p className="text-primary text-sm font-medium mb-4">{member.role}</p>
                   <p className="text-muted text-sm leading-relaxed">{member.bio}</p>
-                  <div className="flex justify-center space-x-3 mt-6">
-                    <a href="#" className="w-9 h-9 rounded-lg bg-surface-light flex items-center justify-center text-muted hover:text-primary hover:bg-primary/10 transition-colors">
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                      </svg>
-                    </a>
-                    <a href="#" className="w-9 h-9 rounded-lg bg-surface-light flex items-center justify-center text-muted hover:text-primary hover:bg-primary/10 transition-colors">
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                      </svg>
-                    </a>
-                  </div>
                 </div>
               </AnimatedSection>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection>
+            <div className="relative rounded-3xl overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-90" />
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_transparent_0%,_rgba(0,0,0,0.15)_100%)]" />
+              <div className="relative px-8 py-16 sm:px-16 sm:py-20 text-center">
+                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                  Ready to Work With Us?
+                </h2>
+                <p className="text-white/80 max-w-2xl mx-auto mb-8 text-lg">
+                  If your organization needs experienced leadership and reliable delivery, we&rsquo;re ready to help. Let&rsquo;s discuss your next initiative.
+                </p>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center px-8 py-4 rounded-xl bg-white text-primary font-semibold text-lg hover:bg-white/90 transition-colors"
+                >
+                  Book a Discovery Call
+                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
     </>

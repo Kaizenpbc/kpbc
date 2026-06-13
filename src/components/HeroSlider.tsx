@@ -16,30 +16,30 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    subtitle: "Where Experience Meets Execution",
-    title: "Welcome to",
-    highlight: "Kaizen",
-    cta: { label: "Our Services", href: "/services" },
+    subtitle: "Enterprise IT for Regulated Organizations",
+    title: "Modernize Operations Across",
+    highlight: "Canada & the Caribbean",
+    cta: { label: "Explore Services", href: "/services" },
     darkGradient:
       "linear-gradient(135deg, #0f172a 0%, #1e3a5f 40%, #0c4a6e 70%, #0a0f1a 100%)",
     lightGradient:
       "linear-gradient(135deg, #dbeafe 0%, #bfdbfe 40%, #93c5fd 70%, #e0f2fe 100%)",
   },
   {
-    subtitle: "Innovative IT Solutions",
-    title: "Transform Your Business with",
-    highlight: "Technology",
-    cta: { label: "Our Products", href: "/products" },
+    subtitle: "Document Workflows | Customer Service | Core Banking",
+    title: "Enterprise Software for",
+    highlight: "Governments & Financial Institutions",
+    cta: { label: "View Products", href: "/products" },
     darkGradient:
       "linear-gradient(135deg, #0a0f1a 0%, #1a1a2e 40%, #16213e 70%, #0f3460 100%)",
     lightGradient:
       "linear-gradient(135deg, #e0f2fe 0%, #c7d2fe 40%, #a5b4fc 70%, #dbeafe 100%)",
   },
   {
-    subtitle: "Trusted by Organizations Worldwide",
-    title: "Delivering Excellence in",
-    highlight: "Every Project",
-    cta: { label: "Contact Us", href: "/contact" },
+    subtitle: "25+ Years Serving Government Agencies & Credit Unions",
+    title: "Your Partner in",
+    highlight: "Digital Transformation",
+    cta: { label: "Book a Discovery Call", href: "/contact" },
     darkGradient:
       "linear-gradient(135deg, #0a0f1a 0%, #1b2838 40%, #0d3b66 70%, #0a0f1a 100%)",
     lightGradient:

@@ -231,90 +231,100 @@ const products = [
 export default function ProductsPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Products — Grouped by Category */}
+      <section className="pt-32 pb-24 bg-surface">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl"
+            transition={{ duration: 0.6 }}
+            className="mb-8 text-center"
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              Our <span className="gradient-text">Products</span>
+            <h1 className="text-3xl sm:text-4xl font-bold text-heading mb-2">
+              Solutions We <span className="gradient-text">Deliver</span>
             </h1>
-            <p className="text-lg sm:text-xl text-muted leading-relaxed">
-              Enterprise-grade software products designed to streamline operations, enhance productivity, and drive organizational growth.
+            <p className="text-muted">
+              Enterprise-grade software for content management, banking, customer service, and more.
             </p>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Products */}
-      <section className="py-24 bg-surface">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-16">
-            {products.map((product, i) => (
-              <AnimatedSection key={product.id} delay={i * 0.05}>
-                <div
-                  id={product.id}
-                  className="rounded-2xl bg-background border border-surface-light overflow-hidden scroll-mt-24"
-                >
-                  {/* Header Bar */}
-                  <div className={`h-1.5 bg-gradient-to-r ${product.gradient}`} />
-
-                  <div className="p-8 lg:p-12">
-                    <div className="flex flex-col lg:flex-row gap-10">
-                      {/* Left - Info */}
-                      <div className="flex-1">
-                        <div className="flex items-center gap-4 mb-4">
-                          <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${product.gradient} bg-opacity-20 flex items-center justify-center`}>
-                            <span className="text-xl font-bold text-white">{product.abbr}</span>
-                          </div>
-                          <div>
-                            <h2 className="text-2xl font-bold text-heading">{product.name}</h2>
-                            <p className="text-muted text-sm">{product.tagline}</p>
-                          </div>
-                        </div>
-                        <p className="text-muted leading-relaxed mt-6">{product.description}</p>
-                      </div>
-
-                      {/* Right - Features */}
-                      <div className="lg:w-80 flex-shrink-0">
-                        <h3 className="text-sm font-semibold text-heading uppercase tracking-wider mb-4">Key Features</h3>
-                        <div className="space-y-3">
-                          {product.features.map((feature) => (
-                            <div key={feature} className="flex items-center text-sm text-muted">
-                              <svg className="w-4 h-4 text-accent mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                              </svg>
-                              {feature}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="mt-8 pt-6 border-t border-surface-light">
-                      <Link
-                        href={product.demoLink || "/contact"}
-                        className="inline-flex items-center text-primary hover:text-primary-light font-medium transition-colors text-sm"
+          {[
+            { title: "Content & Process Automation", ids: ["ecm", "bpm"] },
+            { title: "Financial Services", ids: ["cbs", "los"] },
+            { title: "Customer & Service (Freshworks Suite)", ids: ["crm", "csm", "itsm", "ma", "chat", "phone"] },
+            { title: "Education & Training", ids: ["lms", "sis"] },
+            { title: "AI-Powered Tools", ids: ["ai-pm"] },
+          ].map((group) => {
+            const groupProducts = group.ids
+              .map((id) => products.find((p) => p.id === id))
+              .filter(Boolean) as typeof products;
+            return (
+              <div key={group.title} className="mb-16 last:mb-0">
+                <AnimatedSection>
+                  <h2 className="text-xl font-bold text-heading mb-6 border-b border-surface-light pb-3">
+                    {group.title}
+                  </h2>
+                </AnimatedSection>
+                <div className="space-y-12">
+                  {groupProducts.map((product) => (
+                    <AnimatedSection key={product.id}>
+                      <div
+                        id={product.id}
+                        className="rounded-2xl bg-background border border-surface-light overflow-hidden scroll-mt-24"
                       >
-                        {product.demoLink ? "Learn More" : "Request a Demo"}
-                        <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </Link>
-                    </div>
-                  </div>
+                        <div className={`h-1.5 bg-gradient-to-r ${product.gradient}`} />
+                        <div className="p-8 lg:p-12">
+                          <div className="flex flex-col lg:flex-row gap-10">
+                            <div className="flex-1">
+                              <div className="flex items-center gap-4 mb-4">
+                                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${product.gradient} bg-opacity-20 flex items-center justify-center`}>
+                                  <span className="text-xl font-bold text-white">{product.abbr}</span>
+                                </div>
+                                <div>
+                                  <h3 className="text-2xl font-bold text-heading">{product.name}</h3>
+                                  <p className="text-muted text-sm">{product.tagline}</p>
+                                </div>
+                              </div>
+                              <p className="text-muted leading-relaxed mt-6">{product.description}</p>
+                            </div>
+                            <div className="lg:w-80 flex-shrink-0">
+                              <h4 className="text-sm font-semibold text-heading uppercase tracking-wider mb-4">Key Features</h4>
+                              <div className="space-y-3">
+                                {product.features.map((feature) => (
+                                  <div key={feature} className="flex items-center text-sm text-muted">
+                                    <svg className="w-4 h-4 text-accent mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    {feature}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                          <div className="mt-8 pt-6 border-t border-surface-light flex flex-wrap gap-4">
+                            <Link
+                              href={product.demoLink || "/contact"}
+                              className="inline-flex items-center text-primary hover:text-primary-light font-medium transition-colors text-sm"
+                            >
+                              Learn More
+                              <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                              </svg>
+                            </Link>
+                            <Link
+                              href="/contact"
+                              className="inline-flex items-center text-muted hover:text-heading font-medium transition-colors text-sm"
+                            >
+                              Request a Demo
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </AnimatedSection>
+                  ))}
                 </div>
-              </AnimatedSection>
-            ))}
-          </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
