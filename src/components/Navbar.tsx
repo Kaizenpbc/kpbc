@@ -38,10 +38,12 @@ const productItems = [
 
 function DesktopDropdown({
   label,
+  href,
   items,
   wide,
 }: {
   label: string;
+  href: string;
   items: { href: string; abbr?: string; label: string }[];
   wide?: boolean;
 }) {
@@ -71,9 +73,9 @@ function DesktopDropdown({
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
     >
-      <button
+      <Link
+        href={href}
         className="px-4 py-2 rounded-lg text-sm font-medium text-muted hover:text-heading hover:bg-surface-light transition-all duration-200 flex items-center gap-1"
-        onClick={() => setOpen((v) => !v)}
       >
         {label}
         <svg
@@ -84,7 +86,7 @@ function DesktopDropdown({
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
-      </button>
+      </Link>
 
       <AnimatePresence>
         {open && (
@@ -123,10 +125,12 @@ function DesktopDropdown({
 
 function MobileDropdown({
   label,
+  href,
   items,
   onNavigate,
 }: {
   label: string;
+  href: string;
   items: { href: string; abbr?: string; label: string }[];
   onNavigate: () => void;
 }) {
@@ -134,20 +138,28 @@ function MobileDropdown({
 
   return (
     <div>
-      <button
-        className="w-full flex items-center justify-between px-4 py-2 rounded-lg text-muted hover:text-heading hover:bg-surface-light transition-colors"
-        onClick={() => setOpen((v) => !v)}
-      >
-        <span>{label}</span>
-        <svg
-          className={`w-4 h-4 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+      <div className="flex items-center">
+        <Link
+          href={href}
+          className="flex-1 px-4 py-2 rounded-lg text-muted hover:text-heading hover:bg-surface-light transition-colors"
+          onClick={onNavigate}
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
+          {label}
+        </Link>
+        <button
+          className="px-3 py-2 rounded-lg text-muted hover:text-heading hover:bg-surface-light transition-colors"
+          onClick={() => setOpen((v) => !v)}
+        >
+          <svg
+            className={`w-4 h-4 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </div>
 
       <AnimatePresence>
         {open && (
@@ -207,8 +219,8 @@ export default function Navbar() {
             >
               About
             </Link>
-            <DesktopDropdown label="Services" items={serviceItems} wide />
-            <DesktopDropdown label="Products" items={productItems} wide />
+            <DesktopDropdown label="Services" href="/services" items={serviceItems} wide />
+            <DesktopDropdown label="Products" href="/products" items={productItems} wide />
             <Link
               href="/contact"
               className="px-4 py-2 rounded-lg text-sm font-medium text-muted hover:text-heading hover:bg-surface-light transition-all duration-200"
@@ -279,8 +291,8 @@ export default function Navbar() {
               >
                 About
               </Link>
-              <MobileDropdown label="Services" items={serviceItems} onNavigate={() => setIsOpen(false)} />
-              <MobileDropdown label="Products" items={productItems} onNavigate={() => setIsOpen(false)} />
+              <MobileDropdown label="Services" href="/services" items={serviceItems} onNavigate={() => setIsOpen(false)} />
+              <MobileDropdown label="Products" href="/products" items={productItems} onNavigate={() => setIsOpen(false)} />
               <Link
                 href="/contact"
                 className="block px-4 py-2 rounded-lg text-muted hover:text-heading hover:bg-surface-light transition-colors"
